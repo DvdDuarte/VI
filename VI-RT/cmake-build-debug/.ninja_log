@@ -1,0 +1,21 @@
+# ninja log v5
+69	335	7001063295246747	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/examples/viewer/trackball.cc.obj	c2ed5e717b42144e
+78	5214	7001065979625715	CMakeFiles/VI_RT.dir/VI-RT/Scene/loader_example.cc.obj	622e83e48efc7172
+49	2224	7001063314104231	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/examples/obj_sticher/obj_sticher.cc.obj	3aa9ef197c3f587e
+58	1073	7001063302623970	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/examples/obj_sticher/obj_writer.cc.obj	6f1a63c82add6cc9
+38	3549	7001063327323121	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/examples/callback_api/main.cc.obj	4b7ce99367f2dbeb
+16	268	7001064805653897	CMakeFiles/VI_RT.dir/VI-RT/Camera/perspective.cpp.obj	b4a533df8ccb373e
+24	237	7001064805498457	CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj	e73a354eeb79315e
+270	4273	7001064845820780	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/fuzzer/fuzz_ParseFromString.cc.obj	54a2b1052b0350a3
+84	406	7001064807190245	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/experimental/trackball.cc.obj	cae733a3a8671e73
+65	4364	7001064846718284	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/examples/voxelize/main.cc.obj	411c126117e5ca0a
+42	4381	7001064846909339	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/examples/skin_weight/main.cc.obj	1a7c2985041e46c6
+239	4895	7001064852029172	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/python/tiny_obj_loader.cc.obj	41e5773d7974621a
+47	3690	7001065964429786	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/tiny_obj_loader.cc.obj	1a80d0f787c0d72
+68	5236	7001065979871253	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/loader_example.cc.obj	b47b44850dbb6ada
+59	5693	7001065984466558	CMakeFiles/VI_RT.dir/VI-RT/Scene/tinyobjloader/tests/tester.cc.obj	ec2733a009570fa4
+74	847	7001067443535703	CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj	85a48afe512c1e56
+56	3024	7001067241833686	CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj	a75f84187ebe0725
+10	717	7001067442238168	CMakeFiles/VI_RT.dir/VI-RT/Image/ImagePPM.cpp.obj	f5e8485ddcb9d816
+43	130	7001067598195105	CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj	d9e810bbdc7a71a5
+8	266	7001089419919807	CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj	bbdbf3f4f895f01f
