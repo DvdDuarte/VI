@@ -43,36 +43,6 @@ add_executable(VI_RT
         VI-RT/Rays/intersection.hpp
         VI-RT/Rays/ray.hpp
         VI-RT/Renderer/renderer.hpp
-        VI-RT/Scene/tinyobjloader/examples/callback_api/main.cc
-        VI-RT/Scene/tinyobjloader/examples/obj_sticher/obj_sticher.cc
-        VI-RT/Scene/tinyobjloader/examples/obj_sticher/obj_writer.cc
-        VI-RT/Scene/tinyobjloader/examples/obj_sticher/obj_writer.h
-        VI-RT/Scene/tinyobjloader/examples/skin_weight/main.cc
-        VI-RT/Scene/tinyobjloader/examples/viewer/stb_image.h
-        VI-RT/Scene/tinyobjloader/examples/viewer/trackball.cc
-        VI-RT/Scene/tinyobjloader/examples/viewer/trackball.h
-        VI-RT/Scene/tinyobjloader/examples/viewer/viewer.cc
-        VI-RT/Scene/tinyobjloader/examples/voxelize/main.cc
-        VI-RT/Scene/tinyobjloader/examples/voxelize/voxelizer.h
-        VI-RT/Scene/tinyobjloader/experimental/lfpAlloc/Allocator.hpp
-        VI-RT/Scene/tinyobjloader/experimental/lfpAlloc/ChunkList.hpp
-        VI-RT/Scene/tinyobjloader/experimental/lfpAlloc/Pool.hpp
-        VI-RT/Scene/tinyobjloader/experimental/lfpAlloc/PoolDispatcher.hpp
-        VI-RT/Scene/tinyobjloader/experimental/lfpAlloc/Utils.hpp
-        VI-RT/Scene/tinyobjloader/experimental/tinyobj_loader_opt.h
-        VI-RT/Scene/tinyobjloader/experimental/trackball.cc
-        VI-RT/Scene/tinyobjloader/experimental/trackball.h
-        VI-RT/Scene/tinyobjloader/experimental/viewer.cc
-        VI-RT/Scene/tinyobjloader/fuzzer/fuzz_ParseFromString.cc
-        VI-RT/Scene/tinyobjloader/mapbox/earcut.hpp
-        VI-RT/Scene/tinyobjloader/python/bindings.cc
-        VI-RT/Scene/tinyobjloader/python/tiny_obj_loader.cc
-        VI-RT/Scene/tinyobjloader/tests/acutest.h
-        VI-RT/Scene/tinyobjloader/tests/tester.cc
-        VI-RT/Scene/tinyobjloader/loader_example.cc
-        VI-RT/Scene/tinyobjloader/tiny_obj_loader.cc
-        VI-RT/Scene/tinyobjloader/tiny_obj_loader.h
-        VI-RT/Scene/loader_example.cc
         VI-RT/Scene/scene.cpp
         VI-RT/Scene/scene.hpp
         VI-RT/utils/AABB.cpp

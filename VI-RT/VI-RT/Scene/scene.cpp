@@ -66,7 +66,7 @@ bool Scene::Load (const std::string &fname) {
         return false;
     }
     
-    //PrintInfo (myObjReader);
+    PrintInfo (myObjReader);
 
     // convert loader's representation to my representation
 
