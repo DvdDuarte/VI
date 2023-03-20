@@ -17,7 +17,7 @@ int main(int argc, const char * argv[]) {
     ImagePPM *img;    // Image
     bool success;
     
-    success = scene.Load("C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Scene/tinyobjloader/models/cornell_box.obj");
+    success = scene.Load("../VI-RT/Scene/tinyobjloader/models/cornell_box.obj");
     
     if (!success) {
         std::cout << "ERROR!! :o\n";
