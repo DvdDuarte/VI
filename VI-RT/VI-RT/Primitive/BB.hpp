@@ -9,6 +9,7 @@
 #define BB_hpp
 
 #include "vector.hpp"
+#include "ray.hpp"
 
 typedef struct BB {
     Point min, max;
@@ -19,6 +20,19 @@ typedef struct BB {
         else if (p.Y > max.Y) max.Y = p.Y;
         if (p.Z < min.Z) min.Z = p.Z;
         else if (p.Z > max.Z) max.Z = p.Z;
+    }
+    bool intersect (Ray r) {
+
+        // Absolute distances to lower and upper box coordinates
+
+        Point tLower = (min - r.o); //* 1/r.dir;
+        Point tUpper = (max - r.o); // * 1/r.dir
+
+        // Easy to remember: ``max of mins, and min of maxes''
+
+        float tBoxMin, tBoxMax;
+
+        return tBoxMin <= tBoxMax;
     }
 } BB;
 

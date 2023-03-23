@@ -104,6 +104,10 @@ bool Scene::Load (const std::string &fname) {
             // Create a new face for the mesh
             Face *face = new Face();
 
+            BB *b_box = new BB();
+            b_box->min = Point(0,0,0);
+            b_box->max = Point(0,0,0);
+
             // Loop over vertices in the face.
             for (size_t v = 0; v < fv; v++) {
 
@@ -116,6 +120,8 @@ bool Scene::Load (const std::string &fname) {
                 tinyobj::real_t vx = attrib.vertices[3*size_t(idx.vertex_index)+0];
                 tinyobj::real_t vy = attrib.vertices[3*size_t(idx.vertex_index)+1];
                 tinyobj::real_t vz = attrib.vertices[3*size_t(idx.vertex_index)+2];
+
+                b_box->update(Point(vx,vy,vz));
 
                 // Fill the mesh's vertices vector
                 mesh->vertices.push_back(Point(vx,vy,vz));
@@ -152,6 +158,8 @@ bool Scene::Load (const std::string &fname) {
 
             // Does it have shading normals ?
             face->hasShadingNormals = false;
+
+            face->bb = *b_box;
 
             mesh->faces.push_back(*face);
 
