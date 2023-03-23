@@ -163,79 +163,79 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/3DSortingStruct"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/3DSortingStruct"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Camera"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Camera"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Image"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Image"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Light"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Light"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Primitive"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Primitive"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Primitive/BRDF"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Primitive/BRDF"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Primitive/Geometry"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Primitive/Geometry"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Rays"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Rays"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Renderer"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Renderer"
 				},
 				{
 					"backtrace" : 11,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Scene"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene"
 				},
 				{
 					"backtrace" : 12,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Scene/tinyobjloader"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader"
 				},
 				{
 					"backtrace" : 13,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Scene/tinyobjloader/examples/obj_sticher"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/examples/obj_sticher"
 				},
 				{
 					"backtrace" : 14,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Scene/tinyobjloader/examples/viewer"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/examples/viewer"
 				},
 				{
 					"backtrace" : 15,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Scene/tinyobjloader/examples/voxelize"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/examples/voxelize"
 				},
 				{
 					"backtrace" : 16,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Scene/tinyobjloader/experimental"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/experimental"
 				},
 				{
 					"backtrace" : 17,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Scene/tinyobjloader/experimental/lfpAlloc"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/experimental/lfpAlloc"
 				},
 				{
 					"backtrace" : 18,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Scene/tinyobjloader/mapbox"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/mapbox"
 				},
 				{
 					"backtrace" : 19,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/Scene/tinyobjloader/tests"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/tests"
 				},
 				{
 					"backtrace" : 20,
-					"path" : "C:/work stuff/22-23/2sem/CG/VI-RT/VI-RT/utils"
+					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/utils"
 				}
 			],
 			"language" : "CXX",

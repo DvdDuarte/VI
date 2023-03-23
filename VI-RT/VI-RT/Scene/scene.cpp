@@ -65,12 +65,106 @@ bool Scene::Load (const std::string &fname) {
     if (!myObjReader.ParseFromFile(fname)) {
         return false;
     }
-    
+
     PrintInfo (myObjReader);
 
-    // convert loader's representation to my representation
+    const tinyobj::attrib_t attrib = myObjReader.GetAttrib();
+    std::vector<tinyobj::shape_t> shapes = myObjReader.GetShapes();
+    std::vector<tinyobj::material_t> materials = myObjReader.GetMaterials();
 
-    // your code here
+    numBRDFs = materials.size();
+    BRDFs.resize(numBRDFs);
+    // Load materials
+    for (int i = 0; i < numBRDFs; i++) {
+
+        Phong &ph = (Phong &) BRDFs[i];
+        ph.Ka = RGB(materials[i].ambient[0], materials[i].ambient[1], materials[i].ambient[2]);
+        ph.Kd = RGB(materials[i].diffuse[0], materials[i].diffuse[1], materials[i].diffuse[2]);
+        ph.Ks = RGB(materials[i].specular[0], materials[i].specular[1], materials[i].specular[2]);
+        ph.Kt = RGB(materials[i].transmittance[0], materials[i].transmittance[1], materials[i].transmittance[2]);
+    }
+
+    numPrimitives = shapes.size();
+    // Load shapes
+    auto it_shape = shapes.begin();
+    for (int i = 0 ; it_shape != shapes.end() ; it_shape++, i++) {
+
+        // for each shape create a primitive (Mesh + material_ndx)
+
+        int num_normals = 0;
+        Mesh *mesh = new Mesh();
+        mesh->numFaces = it_shape->mesh.num_face_vertices.size();
+        mesh->numVertices = it_shape->mesh.indices.size();
+
+        // iterate faces
+        size_t index_offset = 0;
+        for (size_t f = 0; f < it_shape->mesh.num_face_vertices.size(); f++) {
+            size_t fv = size_t(it_shape->mesh.num_face_vertices[f]);
+
+            // Create a new face for the mesh
+            Face *face = new Face();
+
+            // Loop over vertices in the face.
+            for (size_t v = 0; v < fv; v++) {
+
+                tinyobj::index_t idx = it_shape->mesh.indices[index_offset + v];
+
+                // Fill the face vertex indices vector
+                face->vert_ndx[v] = idx.vertex_index;
+
+                // access to vertex
+                tinyobj::real_t vx = attrib.vertices[3*size_t(idx.vertex_index)+0];
+                tinyobj::real_t vy = attrib.vertices[3*size_t(idx.vertex_index)+1];
+                tinyobj::real_t vz = attrib.vertices[3*size_t(idx.vertex_index)+2];
+
+                // Fill the mesh's vertices vector
+                mesh->vertices.push_back(Point(vx,vy,vz));
+
+                // Check if `normal_index` is zero or positive. negative = no normal data
+                if (idx.normal_index >= 0) {
+
+                    // Fill the face normal indices vector
+                    face->vert_normals_ndx[v] = idx.normal_index;
+
+                    // access to normal
+                    tinyobj::real_t nx = attrib.normals[3*size_t(idx.normal_index)+0];
+                    tinyobj::real_t ny = attrib.normals[3*size_t(idx.normal_index)+1];
+                    tinyobj::real_t nz = attrib.normals[3*size_t(idx.normal_index)+2];
+
+                    mesh->normals.push_back(Vector(nx, ny, nz));
+                    mesh->numNormals++;
+
+                } else mesh->numNormals = 0;
+            }
+
+            // Create geoNormal (interpolate triangle vertices)
+            Point e0 = mesh->vertices[index_offset];
+            Point e1 = mesh->vertices[index_offset+1];
+            Point e2 = mesh->vertices[index_offset+2];
+
+            Vector e0e1 = Vector(e1.X - e0.X, e1.Y - e0.Y, e1.Z - e0.Z);
+            Vector e0e2 = Vector(e2.X - e0.X, e2.Y - e0.Y, e2.Z - e0.Z);
+
+            Vector geoNorm = e0e1.cross(e0e2);
+            geoNorm.normalize();
+
+            face->geoNormal = geoNorm;
+
+            // Does it have shading normals ?
+            face->hasShadingNormals = false;
+
+            mesh->faces.push_back(*face);
+
+            index_offset += fv;
+        }
+
+        Primitive *prim = new Primitive();
+        prim->g = mesh;
+        prim->material_ndx = it_shape->mesh.material_ids[i];
+
+        prims.push_back(*prim);
+    }
+
     return true;
 }
 
