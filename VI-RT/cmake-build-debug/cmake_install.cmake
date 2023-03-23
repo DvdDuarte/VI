@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Install script for directory: C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT
+=======
+# Install script for directory: E:/GIT/VI/VI-RT
+>>>>>>> 4fc257105717758cfe8a93eb75c0d835bac95aae
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +38,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Program Files/JetBrains/CLion 2022.3.2/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +49,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD
 file(WRITE "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "E:/GIT/VI/VI-RT/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> 4fc257105717758cfe8a93eb75c0d835bac95aae
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
