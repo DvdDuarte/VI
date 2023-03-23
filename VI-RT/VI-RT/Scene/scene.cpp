@@ -162,7 +162,7 @@ bool Scene::Load (const std::string &fname) {
         prim->g = mesh;
         prim->material_ndx = it_shape->mesh.material_ids[i];
 
-        prims.push_back(*prim);
+        prims.push_back(prim);
     }
 
     return true;
@@ -176,11 +176,11 @@ bool Scene::trace (Ray r, Intersection *isect) {
     
     // iterate over all primitives
     for (auto prim_itr = prims.begin() ; prim_itr != prims.end() ; prim_itr++) {
-        if (prim_itr->g->intersect(r, &curr_isect)) {
+        if ((*prim_itr)->g->intersect(r, &curr_isect)) {
             if (!intersection) { // first intersection
                 intersection = true;
                 *isect = curr_isect;
-                isect->f = &BRDFs[prim_itr->material_ndx];
+                isect->f = BRDFs[(*prim_itr)->material_ndx];
             }
             else if (curr_isect.depth < isect->depth) {
                 *isect = curr_isect;

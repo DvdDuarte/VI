@@ -76,8 +76,8 @@ bool Mesh::TriangleIntersect (Ray r, Face f, Intersection *isect) {
     }
 
 
-    r.dir.normalize();
     Vector r_aux = Vector(-r.dir.X, -r.dir.Y,-r.dir.Z);
+    r_aux.normalize();
     *isect = Intersection(hit_point, geo_normal, r_aux, t);
 
     shading_normal.normalize();

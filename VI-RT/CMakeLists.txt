@@ -48,5 +48,5 @@ add_executable(VI_RT
         VI-RT/utils/AABB.cpp
         VI-RT/utils/RGB.hpp
         VI-RT/utils/vector.hpp
-        VI-RT/main.cpp)
+        VI-RT/main.cpp VI-RT/Light/AmbientLight.hpp VI-RT/Renderer/StandardRenderer.cpp VI-RT/Renderer/StandardRenderer.hpp VI-RT/Shader/Shader.hpp VI-RT/Shader/AmbientShader.cpp VI-RT/Shader/AmbientShader.hpp)
 

@@ -11,14 +11,16 @@
 #include "camera.hpp"
 #include "scene.hpp"
 #include "image.hpp"
+#include "../Shader/Shader.hpp"
 
 class Renderer {
 protected:
     Camera *cam;
     Scene *scene;
     Image * img;
+    Shader *shd;
 public:
-    Renderer (Camera *cam, Scene * scene, Image * img): cam(cam), scene(scene), img(img) {}
+    Renderer (Camera *cam, Scene * scene, Image * img, Shader *shd): cam(cam), scene(scene), img(img), shd(shd) {}
     void Render () {}
 };
 
