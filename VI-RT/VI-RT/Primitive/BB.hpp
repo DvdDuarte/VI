@@ -25,12 +25,22 @@ typedef struct BB {
 
         // Absolute distances to lower and upper box coordinates
 
-        Point tLower = (min - r.o); //* 1/r.dir;
-        Point tUpper = (max - r.o); // * 1/r.dir
+        Point invRayDir = Point(1/r.dir.X, 1/r.dir.Y, 1/r.dir.Z);
+
+        Point tLowerAux = Point(min.X - r.o.X, min.Y - r.o.Y, min.Z - r.o.Z);
+        Point tUpperAux = Point(max.X - r.o.X, max.Y - r.o.Y, max.Z - r.o.Z);
+
+        Vector tLower = Vector(tLowerAux.X * invRayDir.X,
+                               tLowerAux.Y * invRayDir.Y,
+                               tLowerAux.Y * invRayDir.Y);
+        Vector tUpper = Vector(tUpperAux.X * invRayDir.X,
+                               tUpperAux.Y * invRayDir.Y,
+                               tUpperAux.Y * invRayDir.Y);
 
         // Easy to remember: ``max of mins, and min of maxes''
 
-        float tBoxMin, tBoxMax;
+        float tBoxMin = std::max(std::max(tLower.X, tLower.Y), tLower.Z);
+        float tBoxMax = std::min(std::min(tUpper.X, tUpper.Y), tUpper.Z);
 
         return tBoxMin <= tBoxMax;
     }

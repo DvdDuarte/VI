@@ -21,6 +21,7 @@ bool Mesh::intersect (Ray r, Intersection *isect) {
     Intersection min_isect, curr_isect;
     float min_depth=FLT_MAX;
     // intersect the ray with the mesh BB
+    
 
     if (!intersect) return false;
     
