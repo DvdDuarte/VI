@@ -7,31 +7,56 @@
 
 #include "ImagePPM.hpp"
 #include <iostream>
-#include <fstream>
+#include <algorithm>
 
-void ImagePPM::ToneMap () {
-    imageToSave = new PPM_pixel[W*H];
-    
-    // loop over each pixel in the image, clamp and convert to byte format
-    for (int j = 0 ; j< H ; j++) {
-        for (int i = 0; i < W ; ++i) {
-            imageToSave[j*W+i].val[0] = (unsigned char)(std::min(1.f, imagePlane[j*W+i].R) * 255);
-            imageToSave[j*W+i].val[1] = (unsigned char)(std::min(1.f, imagePlane[j*W+i].G) * 255);
-            imageToSave[j*W+i].val[2] = (unsigned char)(std::min(1.f, imagePlane[j*W+i].B) * 255);
+// Constructor
+ImagePPM::ImagePPM(const int W, const int H) : Image(W, H) {
+    imagePlane = new RGB[W * H];
+    imageToSave = nullptr;
+}
+
+// Destructor
+ImagePPM::~ImagePPM() {
+    delete[] imagePlane;
+    delete[] imageToSave;
+}
+
+void ImagePPM::SetPixel(const int x, const int y, const RGB &color) {
+    imagePlane[y * W + x] = color;
+}
+
+void ImagePPM::ToneMap() {
+    imageToSave = new PPM_pixel[W * H];
+
+    for (int j = 0; j < H; j++) {
+        for (int i = 0; i < W; ++i) {
+            imageToSave[j * W + i].val[0] = (unsigned char)(std::min(1.f, imagePlane[j * W + i].R) * 255);
+            imageToSave[j * W + i].val[1] = (unsigned char)(std::min(1.f, imagePlane[j * W + i].G) * 255);
+            imageToSave[j * W + i].val[2] = (unsigned char)(std::min(1.f, imagePlane[j * W + i].B) * 255);
         }
     }
-
 }
 
-bool ImagePPM::Save (std::string filename) {
-    
-    // convert from float to {0,1,..., 255}
+bool ImagePPM::Save(std::string filename) {
     ToneMap();
 
-    // write imageToSave to file
-    
-    // Details and code on PPM files available at:
-    // https://www.scratchapixel.com/lessons/digital-imaging/simple-image-manipulations/reading-writing-images.html
-    
+    std::ofstream file(filename, std::ios::binary);
+    if (!file.is_open()) {
+        std::cerr << "Failed to open file " << filename << " for writing" << std::endl;
+        return false;
+    }
+
+    file << "P6\n";
+    file << W << " " << H << "\n";
+    file << "255\n";
+
+    file.write((char*)imageToSave, W * H * sizeof(PPM_pixel));
+
+    file.close();
+
+    delete[] imageToSave;
+    imageToSave = nullptr;
+
     return true;
 }
+
