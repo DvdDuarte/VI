@@ -15,7 +15,7 @@ public:
     float X,Y,Z;
     Vector ():X(0.),Y(0.),Z(0.){}
     Vector (float x, float y, float z):X(x),Y(y),Z(z){}
-    ~Vector(){}
+    ~Vector()= default;
     void set (Vector &v) {
         X = v.X;
         Y = v.Y;
@@ -32,10 +32,10 @@ public:
         return p*f;
     }
     // note that methods declared within the class are inline by default
-    inline float norm () {
+    inline float norm () const {
         return std::sqrt(X*X+Y*Y+Z*Z);
     }
-    inline void normalize () {
+    inline void Normalize () {
         const float my_norm = norm();
         if (my_norm>0.) {
             X /= my_norm;
@@ -47,7 +47,7 @@ public:
         return X*v2.X + Y*v2.Y + Z*v2.Z;
     }
     // from pbrt book (3rd ed.), sec 2.2.1, pag 65
-    Vector cross (Vector v2) {
+    Vector cross (Vector v2) const {
         double v1x = X, v1y = Y, v1z = Z;
         double v2x = v2.X, v2y = v2.Y, v2z = v2.Z;
         return Vector((v1y * v2z) - (v1z * v2y),
@@ -55,23 +55,31 @@ public:
         (v1x * v2y) - (v1y * v2x));
     }
     // from pbrt book (3rd ed.), sec 2.2.1, pag 63
-    Vector Abs(void) {
-        return Vector(std::abs(X), std::abs(Y), std::abs(Z));
+    Vector Abs() const {
+        return {std::abs(X), std::abs(Y), std::abs(Z)};
     }
     // from pbrt book (3rd ed.), sec 2.2.1, pag 66
-    int MaxDimension(void) {
+    int MaxDimension() const {
         return (X > Y) ? ((X > Z) ? 0 : 2) : ((Y > Z) ? 1 : 2);
     }
     // from pbrt book (3rd ed.), sec 2.2.1, pag 67
     Vector Permute(int x, int y, int z) {
         const float XYZ[3]={X,Y,Z};
-        return Vector(XYZ[x], XYZ[y], XYZ[z]);
+        return {XYZ[x], XYZ[y], XYZ[z]};
     }
     // flip a vector such that it points to the same "side" as v (positive cosine)
     // based on pbrt book, sec 2.4, pag 72
     Vector Faceforward(const Vector &v) const {
         Vector vv = *this;
         return (vv.dot(v) < 0.f) ? -1.f * vv : vv;
+    }
+
+    static inline Vector Cross(const Vector& a, const Vector& b) {
+        return {
+                a.Y * b.Z - a.Z * b.Y,
+                a.Z * b.X - a.X * b.Z,
+                a.X * b.Y - a.Y * b.X
+        };
     }
 };
 
@@ -81,7 +89,7 @@ public:
     float X,Y,Z;
     Point ():X(0.),Y(0.),Z(0.){}
     Point (float x, float y, float z):X(x),Y(y),Z(z){}
-    ~Point(){}
+    ~Point()= default;
     Point operator -(const Point &p) const { return {X-p.X, Y-p.Y, Z-p.Z};}
     Point operator +(const Point &p) const { return {X+p.X, Y+p.Y, Z+p.Z};}
     Point operator *(const float f) const { return {f*X, f*Y, f*Z};}
@@ -96,13 +104,13 @@ public:
         X=x;Y=y;Z=z;
     }
     // note that methods declared within the class are inline by default
-    inline Vector vec2point (Point p2) {
+    inline Vector vec2point (Point p2) const {
         Vector v(p2.X-X, p2.Y-Y, p2.Z-Z);
         return v;
     }
     Point Permute(int x, int y, int z) {
         const float XYZ[3]={X,Y,Z};
-        return Point(XYZ[x], XYZ[y], XYZ[z]);
+        return {XYZ[x], XYZ[y], XYZ[z]};
     }
 };
 

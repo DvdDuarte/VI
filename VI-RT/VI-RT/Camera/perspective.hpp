@@ -17,13 +17,16 @@ class Perspective: public Camera {
     Vector Up;
     float fovW, fovH;
     int W, H;
+    float dist;
+    Vector forward, right, up;
     float c2w[3][3];  // camera 2 world transform
 public:
-    Perspective (const Point Eye, const Point At, const Vector Up, const int W, const int H, const float fovW, const float fovH): Eye(Eye), At(At), Up(Up), W(W), H(H), fovW(fovW), fovH(fovH)  {
-        // compute camera 2 world transform
+    Perspective (Point Eye, Point At, Vector Up, int W, int H, float fovW, float fovH);
+    bool GenerateRay(int x, int y, Ray *r, const float *cam_jitter=nullptr);
+    void getResolution(int *outW, int *outH) {
+        *outW = W;
+        *outH = H;
     }
-    bool GenerateRay(const int x, const int y, Ray *r, const float *cam_jitter=NULL);
-    void getResolution (int *_W, int *_H) {*_W=W; *_H=H;}
 };
 
 #endif /* perspective_hpp */

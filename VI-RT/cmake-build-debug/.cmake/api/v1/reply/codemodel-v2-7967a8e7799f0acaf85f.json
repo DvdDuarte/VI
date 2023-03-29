@@ -39,11 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "VI_RT::@6890427a1f51a3e7e1df",
-<<<<<<< HEAD:VI-RT/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-9096b0aac4e2c1e4a600.json
-					"jsonFile" : "target-VI_RT-Debug-291b61be38b8a5198147.json",
-=======
-					"jsonFile" : "target-VI_RT-Debug-cae3ad17a99a80025b8e.json",
->>>>>>> 4fc257105717758cfe8a93eb75c0d835bac95aae:VI-RT/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-f26a9887170e04a69f86.json
+					"jsonFile" : "target-VI_RT-Debug-04ae4f7ec2ff72691e7c.json",
 					"name" : "VI_RT",
 					"projectIndex" : 0
 				}
@@ -53,13 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-<<<<<<< HEAD:VI-RT/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-9096b0aac4e2c1e4a600.json
-		"build" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/cmake-build-debug",
-		"source" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT"
-=======
 		"build" : "E:/GIT/VI/VI-RT/cmake-build-debug",
 		"source" : "E:/GIT/VI/VI-RT"
->>>>>>> 4fc257105717758cfe8a93eb75c0d835bac95aae:VI-RT/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-f26a9887170e04a69f86.json
 	},
 	"version" : 
 	{

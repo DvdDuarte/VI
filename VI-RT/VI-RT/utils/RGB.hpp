@@ -13,15 +13,15 @@ public:
     float R, G, B;
     RGB ():R(0.),G(0.),B(0.) {}
     RGB (float r, float g, float b):R(r),G(g),B(b) {}
-    RGB (float *rgb):R(rgb[0]),G(rgb[1]),B(rgb[2]) {}
-    ~RGB () {}
+    explicit RGB (float *rgb):R(rgb[0]),G(rgb[1]),B(rgb[2]) {}
+    ~RGB () = default;
     RGB& operator+=(const RGB& rhs){
         this->R += rhs.R;
         this->G += rhs.G;
         this->B += rhs.B;
         return *this;
     }
-    RGB operator+(RGB const& obj)
+    RGB operator+(RGB const& obj) const
     {
         RGB res;
         res.R = R + obj.R;
@@ -29,7 +29,7 @@ public:
         res.B = B + obj.B;
         return res;
     }
-    RGB operator*(RGB const& obj)
+    RGB operator*(RGB const& obj) const
     {
         RGB res;
         res.R = R * obj.R;
@@ -37,10 +37,10 @@ public:
         res.B = B * obj.B;
         return res;
     }
-    float Y() {
+    float Y() const {
         return (R*0.2126 + G*0.7152 + B*0.0722 );
     }
-    bool isZero () {
+    bool isZero () const {
         return ((R==0.) && (G==0.) && (B==0.));
     }
 };

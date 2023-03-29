@@ -153,7 +153,7 @@ bool Scene::Load (const std::string &fname) {
             Vector e0e2 = Vector(e2.X - e0.X, e2.Y - e0.Y, e2.Z - e0.Z);
 
             Vector geoNorm = e0e1.cross(e0e2);
-            geoNorm.normalize();
+            geoNorm.Normalize();
 
             face->geoNormal = geoNorm;
 

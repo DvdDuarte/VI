@@ -163,81 +163,6 @@
 			[
 				{
 					"backtrace" : 2,
-<<<<<<< HEAD:VI-RT/cmake-build-debug/.cmake/api/v1/reply/target-VI_RT-Debug-291b61be38b8a5198147.json
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/3DSortingStruct"
-				},
-				{
-					"backtrace" : 3,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Camera"
-				},
-				{
-					"backtrace" : 4,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Image"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Light"
-				},
-				{
-					"backtrace" : 6,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Primitive"
-				},
-				{
-					"backtrace" : 7,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Primitive/BRDF"
-				},
-				{
-					"backtrace" : 8,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Primitive/Geometry"
-				},
-				{
-					"backtrace" : 9,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Rays"
-				},
-				{
-					"backtrace" : 10,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Renderer"
-				},
-				{
-					"backtrace" : 11,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene"
-				},
-				{
-					"backtrace" : 12,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader"
-				},
-				{
-					"backtrace" : 13,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/examples/obj_sticher"
-				},
-				{
-					"backtrace" : 14,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/examples/viewer"
-				},
-				{
-					"backtrace" : 15,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/examples/voxelize"
-				},
-				{
-					"backtrace" : 16,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/experimental"
-				},
-				{
-					"backtrace" : 17,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/experimental/lfpAlloc"
-				},
-				{
-					"backtrace" : 18,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/mapbox"
-				},
-				{
-					"backtrace" : 19,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/Scene/tinyobjloader/tests"
-				},
-				{
-					"backtrace" : 20,
-					"path" : "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/VI-RT/utils"
-=======
 					"path" : "E:/GIT/VI/VI-RT/VI-RT/3DSortingStruct"
 				},
 				{
@@ -311,7 +236,6 @@
 				{
 					"backtrace" : 20,
 					"path" : "E:/GIT/VI/VI-RT/VI-RT/utils"
->>>>>>> 4fc257105717758cfe8a93eb75c0d835bac95aae:VI-RT/cmake-build-debug/.cmake/api/v1/reply/target-VI_RT-Debug-cae3ad17a99a80025b8e.json
 				}
 			],
 			"language" : "CXX",
@@ -331,7 +255,9 @@
 				12,
 				19,
 				21,
-				24
+				24,
+				26,
+				29
 			]
 		}
 	],
@@ -385,7 +311,11 @@
 				18,
 				20,
 				22,
-				23
+				23,
+				25,
+				27,
+				28,
+				30
 			]
 		},
 		{
@@ -398,7 +328,9 @@
 				12,
 				19,
 				21,
-				24
+				24,
+				26,
+				29
 			]
 		}
 	],
@@ -535,6 +467,38 @@
 			"compileGroupIndex" : 0,
 			"path" : "VI-RT/main.cpp",
 			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "VI-RT/Light/AmbientLight.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "VI-RT/Renderer/StandardRenderer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "VI-RT/Renderer/StandardRenderer.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "VI-RT/Shader/Shader.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "VI-RT/Shader/AmbientShader.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "VI-RT/Shader/AmbientShader.hpp",
+			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "EXECUTABLE"
