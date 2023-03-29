@@ -3,13 +3,14 @@
 //
 
 #include "StandardRenderer.hpp"
+#include "perspective.hpp"
 
 void StandardRenderer::Render () {
     int W=0,H=0;  // resolution
     int x,y;
 
     // get resolution from the camera
-    // ...
+    Perspective* perspCam = dynamic_cast<Perspective*>(cam);
 
     // main rendering loop: get primary rays from the camera until done
     for (y=0 ; y< H ; y++) {  // loop over rows

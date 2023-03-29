@@ -11,9 +11,9 @@
 // based on pbrt book, sec 6.1, pag. 356
 class Camera {
 public:
-    Camera () = default;
-    ~Camera() = default;
-    bool GenerateRay() {return false;};
+    Camera () {}
+    ~Camera() {}
+    virtual bool GenerateRay() {return false;};
 };
 
 #endif /* camera_hpp */
