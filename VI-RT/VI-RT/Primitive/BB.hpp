@@ -39,8 +39,8 @@ typedef struct BB {
 
         // Easy to remember: ``max of mins, and min of maxes''
 
-        float tBoxMin = std::max(std::max(tLower.X, tLower.Y), tLower.Z);
-        float tBoxMax = std::min(std::min(tUpper.X, tUpper.Y), tUpper.Z);
+        float tBoxMin = std::fmax(std::fmax(tLower.X, tLower.Y), tLower.Z);
+        float tBoxMax = std::fmin(std::fmin(tUpper.X, tUpper.Y), tUpper.Z);
 
         return tBoxMin <= tBoxMax;
     }

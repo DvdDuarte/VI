@@ -77,11 +77,12 @@ bool Scene::Load (const std::string &fname) {
     // Load materials
     for (int i = 0; i < numBRDFs; i++) {
 
-        Phong &ph = (Phong &) BRDFs[i];
+        Phong ph;
         ph.Ka = RGB(materials[i].ambient[0], materials[i].ambient[1], materials[i].ambient[2]);
         ph.Kd = RGB(materials[i].diffuse[0], materials[i].diffuse[1], materials[i].diffuse[2]);
         ph.Ks = RGB(materials[i].specular[0], materials[i].specular[1], materials[i].specular[2]);
         ph.Kt = RGB(materials[i].transmittance[0], materials[i].transmittance[1], materials[i].transmittance[2]);
+        BRDFs[i] = new Phong(ph);
     }
 
     numPrimitives = shapes.size();
