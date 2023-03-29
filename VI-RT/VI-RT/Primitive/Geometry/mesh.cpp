@@ -56,7 +56,7 @@ bool Mesh::TriangleIntersect (Ray r, Face f, Intersection *isect) {
             normal = normals[f.vert_normals_ndx[0]] * (1.0 - u - v) +
                      normals[f.vert_normals_ndx[1]] * u +
                      normals[f.vert_normals_ndx[2]] * v;
-            normal.normalize();
+            normal.Normalize();
         } else {
             // Use the geometric normal of the face
             normal = f.geoNormal;

@@ -173,6 +173,36 @@ CMakeFiles/VI_RT.dir/VI-RT/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VI_RT.dir/VI-RT/main.cpp.s"
 	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\GIT\VI\VI-RT\VI-RT\main.cpp -o CMakeFiles\VI_RT.dir\VI-RT\main.cpp.s
 
+CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj: CMakeFiles/VI_RT.dir/flags.make
+CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
+CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/Renderer/StandardRenderer.cpp
+CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj"
+	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\Renderer\StandardRenderer.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\Renderer\StandardRenderer.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\Renderer\StandardRenderer.cpp
+
+CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.i"
+	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\GIT\VI\VI-RT\VI-RT\Renderer\StandardRenderer.cpp > CMakeFiles\VI_RT.dir\VI-RT\Renderer\StandardRenderer.cpp.i
+
+CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.s"
+	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\GIT\VI\VI-RT\VI-RT\Renderer\StandardRenderer.cpp -o CMakeFiles\VI_RT.dir\VI-RT\Renderer\StandardRenderer.cpp.s
+
+CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj: CMakeFiles/VI_RT.dir/flags.make
+CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
+CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/Shader/AmbientShader.cpp
+CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj"
+	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\Shader\AmbientShader.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\Shader\AmbientShader.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\Shader\AmbientShader.cpp
+
+CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.i"
+	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\GIT\VI\VI-RT\VI-RT\Shader\AmbientShader.cpp > CMakeFiles\VI_RT.dir\VI-RT\Shader\AmbientShader.cpp.i
+
+CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.s"
+	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\GIT\VI\VI-RT\VI-RT\Shader\AmbientShader.cpp -o CMakeFiles\VI_RT.dir\VI-RT\Shader\AmbientShader.cpp.s
+
 # Object files for target VI_RT
 VI_RT_OBJECTS = \
 "CMakeFiles/VI_RT.dir/VI-RT/Camera/perspective.cpp.obj" \
@@ -181,7 +211,9 @@ VI_RT_OBJECTS = \
 "CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj" \
 "CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj" \
 "CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj" \
-"CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj"
+"CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj" \
+"CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj" \
+"CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj"
 
 # External object files for target VI_RT
 VI_RT_EXTERNAL_OBJECTS =
@@ -193,11 +225,13 @@ VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj
+VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj
+VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/build.make
 VI_RT.exe: CMakeFiles/VI_RT.dir/linklibs.rsp
 VI_RT.exe: CMakeFiles/VI_RT.dir/objects1.rsp
 VI_RT.exe: CMakeFiles/VI_RT.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable VI_RT.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable VI_RT.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\VI_RT.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

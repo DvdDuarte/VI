@@ -141,6 +141,9 @@
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Image/image.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Light/AmbientLight.hpp">
+			<Option target="VI_RT"/>
+		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Light/light.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
@@ -174,6 +177,12 @@
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Rays/ray.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Renderer/StandardRenderer.cpp">
+			<Option target="VI_RT"/>
+		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Renderer/StandardRenderer.hpp">
+			<Option target="VI_RT"/>
+		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Renderer/renderer.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
@@ -181,6 +190,15 @@
 			<Option target="VI_RT"/>
 		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Scene/scene.hpp">
+			<Option target="VI_RT"/>
+		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/AmbientShader.cpp">
+			<Option target="VI_RT"/>
+		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/AmbientShader.hpp">
+			<Option target="VI_RT"/>
+		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/Shader.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/main.cpp">

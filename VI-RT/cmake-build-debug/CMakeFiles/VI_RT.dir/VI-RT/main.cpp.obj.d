@@ -157,5 +157,12 @@ CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj: E:\GIT\VI\VI-RT\VI-RT\main.cpp \
  C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cstring \
  C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/x86_64-w64-mingw32/include/string.h \
  C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
+ E:/GIT/VI/VI-RT/VI-RT/Shader/Shader.hpp \
  E:/GIT/VI/VI-RT/VI-RT/Image/ImagePPM.hpp \
- E:/GIT/VI/VI-RT/VI-RT/Image/image.hpp
+ E:/GIT/VI/VI-RT/VI-RT/Image/image.hpp \
+ E:/GIT/VI/VI-RT/VI-RT/Light/AmbientLight.hpp \
+ E:/GIT/VI/VI-RT/VI-RT/Light/light.hpp \
+ E:\GIT\VI\VI-RT\VI-RT\Shader/AmbientShader.hpp \
+ E:\GIT\VI\VI-RT\VI-RT\Shader/shader.hpp \
+ E:/GIT/VI/VI-RT/VI-RT/Renderer/StandardRenderer.hpp \
+ E:/GIT/VI/VI-RT/VI-RT/Renderer/renderer.hpp

@@ -224,6 +224,30 @@ VI-RT/Primitive/Geometry/mesh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.s
 .PHONY : VI-RT/Primitive/Geometry/mesh.cpp.s
 
+VI-RT/Renderer/StandardRenderer.obj: VI-RT/Renderer/StandardRenderer.cpp.obj
+.PHONY : VI-RT/Renderer/StandardRenderer.obj
+
+# target to build an object file
+VI-RT/Renderer/StandardRenderer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj
+.PHONY : VI-RT/Renderer/StandardRenderer.cpp.obj
+
+VI-RT/Renderer/StandardRenderer.i: VI-RT/Renderer/StandardRenderer.cpp.i
+.PHONY : VI-RT/Renderer/StandardRenderer.i
+
+# target to preprocess a source file
+VI-RT/Renderer/StandardRenderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.i
+.PHONY : VI-RT/Renderer/StandardRenderer.cpp.i
+
+VI-RT/Renderer/StandardRenderer.s: VI-RT/Renderer/StandardRenderer.cpp.s
+.PHONY : VI-RT/Renderer/StandardRenderer.s
+
+# target to generate assembly for a file
+VI-RT/Renderer/StandardRenderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.s
+.PHONY : VI-RT/Renderer/StandardRenderer.cpp.s
+
 VI-RT/Scene/scene.obj: VI-RT/Scene/scene.cpp.obj
 .PHONY : VI-RT/Scene/scene.obj
 
@@ -247,6 +271,30 @@ VI-RT/Scene/scene.s: VI-RT/Scene/scene.cpp.s
 VI-RT/Scene/scene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.s
 .PHONY : VI-RT/Scene/scene.cpp.s
+
+VI-RT/Shader/AmbientShader.obj: VI-RT/Shader/AmbientShader.cpp.obj
+.PHONY : VI-RT/Shader/AmbientShader.obj
+
+# target to build an object file
+VI-RT/Shader/AmbientShader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj
+.PHONY : VI-RT/Shader/AmbientShader.cpp.obj
+
+VI-RT/Shader/AmbientShader.i: VI-RT/Shader/AmbientShader.cpp.i
+.PHONY : VI-RT/Shader/AmbientShader.i
+
+# target to preprocess a source file
+VI-RT/Shader/AmbientShader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.i
+.PHONY : VI-RT/Shader/AmbientShader.cpp.i
+
+VI-RT/Shader/AmbientShader.s: VI-RT/Shader/AmbientShader.cpp.s
+.PHONY : VI-RT/Shader/AmbientShader.s
+
+# target to generate assembly for a file
+VI-RT/Shader/AmbientShader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.s
+.PHONY : VI-RT/Shader/AmbientShader.cpp.s
 
 VI-RT/main.obj: VI-RT/main.cpp.obj
 .PHONY : VI-RT/main.obj
@@ -317,9 +365,15 @@ help:
 	@echo ... VI-RT/Primitive/Geometry/mesh.obj
 	@echo ... VI-RT/Primitive/Geometry/mesh.i
 	@echo ... VI-RT/Primitive/Geometry/mesh.s
+	@echo ... VI-RT/Renderer/StandardRenderer.obj
+	@echo ... VI-RT/Renderer/StandardRenderer.i
+	@echo ... VI-RT/Renderer/StandardRenderer.s
 	@echo ... VI-RT/Scene/scene.obj
 	@echo ... VI-RT/Scene/scene.i
 	@echo ... VI-RT/Scene/scene.s
+	@echo ... VI-RT/Shader/AmbientShader.obj
+	@echo ... VI-RT/Shader/AmbientShader.i
+	@echo ... VI-RT/Shader/AmbientShader.s
 	@echo ... VI-RT/main.obj
 	@echo ... VI-RT/main.i
 	@echo ... VI-RT/main.s

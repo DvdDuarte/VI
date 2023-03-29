@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Install script for directory: C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT
-=======
 # Install script for directory: E:/GIT/VI/VI-RT
->>>>>>> 4fc257105717758cfe8a93eb75c0d835bac95aae
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -49,9 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-<<<<<<< HEAD
-file(WRITE "C:/work stuff/22-23/2sem/CG/vi/VI/VI-RT/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
-=======
 file(WRITE "E:/GIT/VI/VI-RT/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
->>>>>>> 4fc257105717758cfe8a93eb75c0d835bac95aae
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

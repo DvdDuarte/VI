@@ -1,0 +1,29 @@
+
+# CLion project files
+.cproject
+.cw
+.idea/
+
+# Compiled binary files
+bin/
+out/
+
+# Object files
+*.o
+*.obj
+
+# Libraries
+*.a
+*.lib
+
+# Compiled dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Generated files
+gen/
+
+# Editor-specific files
+*.swp
+*~
