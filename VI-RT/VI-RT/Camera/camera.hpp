@@ -13,7 +13,7 @@ class Camera {
 public:
     Camera () {}
     ~Camera() {}
-    bool GenerateRay() {return false;};
+    virtual bool GenerateRay() {return false;};
 };
 
 #endif /* camera_hpp */
