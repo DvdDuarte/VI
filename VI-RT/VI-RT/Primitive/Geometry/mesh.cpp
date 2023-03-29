@@ -29,7 +29,7 @@ bool Mesh::TriangleIntersect (Ray r, Face f, Intersection *isect) {
     a = edge1.dot(h);
 
     if (a > -EPSILON && a < EPSILON)
-        return false;
+        return false; // This ray is parallel to this triangle.
 
     factor = 1.0 / a;
     s = Vector(r.o.X - p0.X, r.o.Y - p0.Y, r.o.Z - p0.Z);
@@ -38,6 +38,14 @@ bool Mesh::TriangleIntersect (Ray r, Face f, Intersection *isect) {
     if(u < 0.0 || u > 1.0)
         return false;
 
+    q = s.cross(edge1);
+    v = factor * r.dir.dot(q);
+
+    if (v < 0.0 || u + v > 1.0) {
+        return false;
+    }
+
+    // At this stage we can compute t to find out where the intersection point is on the line.
     t = factor * edge2.dot(q);
     if (t > EPSILON) { // ray intersection
         // Compute the intersection point and update the Intersection object
