@@ -30,6 +30,7 @@ public:
     void SetPixel(const int x, const int y, const RGB& color);
 
     bool Save(const std::string filename);
+    bool Load(const std::string& filename);
 };
 
 #endif /* ImagePPM_hpp */
