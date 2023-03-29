@@ -11,6 +11,7 @@ void StandardRenderer::Render () {
 
     // get resolution from the camera
     Perspective* perspCam = dynamic_cast<Perspective*>(cam);
+    perspCam->getResolution(&W, &H);
 
     // main rendering loop: get primary rays from the camera until done
     for (y=0 ; y< H ; y++) {  // loop over rows
@@ -21,13 +22,13 @@ void StandardRenderer::Render () {
             RGB color;
 
             // Generate Ray (camera)
-            // ...
+            perspCam->GenerateRay(x,y, &primary, nullptr);
 
             // trace ray (scene)
-            // ...
+            intersected = scene->trace(primary, &isect);
 
             // shade this intersection (shader)
-            // ...
+            color = shd->shade(intersected, isect);
 
             // write the result into the image frame buffer (image)
             img->set(x,y,color);

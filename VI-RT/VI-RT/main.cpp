@@ -37,15 +37,15 @@ int main(int argc, const char * argv[]) {
     scene.numLights++;
 
     // Image resolution
-    const int W= 640;
-    const int H= 480;
+    const int W= 1024;
+    const int H= 1024;
 
     img = new ImagePPM(W,H);
 
     // Camera parameters
-    const Point Eye ={0,0,0}, At={0,0,1};
+    const Point Eye ={280,275,-330}, At={280,275,-330};
     const Vector Up={0,1,0};
-    const float fovW = 3.14f/3.f, fovH = 3.14f/3.f;
+    const float fovW = 909, fovH = fovW * H/W;
     cam = new Perspective(Eye, At, Up, W, H, fovW, fovH);
 
     // create the shader
@@ -58,6 +58,14 @@ int main(int argc, const char * argv[]) {
 
     // save the image
     img->Save("MyImage.ppm");
+
+    // Load an existing PPM file
+    success = img->Load("MyImage.ppm");
+    if (!success) {
+        std::cout << "ERROR: Failed to load PPM file!\n";
+        return 1;
+    }
+    std::cout << "PPM Load: SUCCESS!! :-)\n";
 
     std::cout << "That's all, folks!" << std::endl;
     return 0;

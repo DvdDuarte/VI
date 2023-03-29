@@ -27,6 +27,7 @@ public:
         *outW = W;
         *outH = H;
     }
+
 };
 
 #endif /* perspective_hpp */

@@ -17,6 +17,11 @@ Perspective::Perspective(const Point Eye, const Point At, const Vector Up, const
 }
 
 bool Perspective::GenerateRay(const int x, const int y, Ray *r, const float *cam_jitter) {
+
+    if (x < 0 || x >= W || y < 0 || y >= H) {
+        return false;
+    }
+
     float u = (2.0f * (x + 0.5f) / W) - 1.0f;
     float v = 1.0f - (2.0f * (y + 0.5f) / H);
 
