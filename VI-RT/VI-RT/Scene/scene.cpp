@@ -148,11 +148,13 @@ bool Scene::trace (Ray r, Intersection *isect) {
         if ((*prim_itr)->g->intersect(r, &curr_isect)) {
             if (!intersection) { // first intersection
                 intersection = true;
+                curr_isect.f = BRDFs[(*prim_itr)->material_ndx];
                 *isect = curr_isect;
-                isect->f = BRDFs[(*prim_itr)->material_ndx];
             }
             else if (curr_isect.depth < isect->depth) {
+                curr_isect.f = BRDFs[(*prim_itr)->material_ndx];
                 *isect = curr_isect;
+
             }
         }
     }

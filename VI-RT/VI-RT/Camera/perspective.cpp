@@ -22,18 +22,20 @@ bool Perspective::GenerateRay(const int x, const int y, Ray *r, const float *cam
         return false;
     }
 
-    float u = (2.0f * (x + 0.5f) / W) - 1.0f;
-    float v = 1.0f - (2.0f * (y + 0.5f) / H);
+    float xs = (2.0f * (x + 0.5f) / W) - 1.0f;
 
-    Vector direction = u * right + v * up - dist * forward;
-    direction.Normalize();
+    float ys = (2.0f * (y + 0.5f) / H) - 1.0f;
+
+    float xc = xs * tan(fovW / 2);
+    float yc = ys * tan(fovH / 2);
+
+    Vector direction = Vector(xc, yc, 1);
 
     Vector worldDirection = Vector(
             c2w[0][0] * direction.X + c2w[0][1] * direction.Y + c2w[0][2] * direction.Z,
             c2w[1][0] * direction.X + c2w[1][1] * direction.Y + c2w[1][2] * direction.Z,
             c2w[2][0] * direction.X + c2w[2][1] * direction.Y + c2w[2][2] * direction.Z
     );
-    worldDirection.Normalize();
 
     *r = Ray(Eye, worldDirection);
 
