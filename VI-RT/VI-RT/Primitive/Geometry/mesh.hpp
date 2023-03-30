@@ -33,7 +33,7 @@ public:
     std::vector<Point> vertices;
     int numNormals;
     std::vector<Vector> normals;
-    bool intersect (Ray r, Intersection *isect);
+    bool intersect (Ray  r, Intersection *isect);
 
     Mesh(): numFaces(0), numVertices(0), numNormals(0) {}
 
