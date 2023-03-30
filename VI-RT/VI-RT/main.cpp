@@ -43,9 +43,9 @@ int main(int argc, const char * argv[]) {
     img = new ImagePPM(W,H);
 
     // Camera parameters
-    const Point Eye ={280,275,-330}, At={280,275,-330};
+    const Point Eye ={280,275,-330}, At={280,265,0};
     const Vector Up={0,1,0};
-    const float fovW = 909, fovH = fovW * H/W;
+    const float fovW = 90, fovH = fovW * H/W;
     cam = new Perspective(Eye, At, Up, W, H, fovW, fovH);
 
     // create the shader
