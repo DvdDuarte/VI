@@ -63,6 +63,7 @@ bool Scene::Load (const std::string &fname) {
     ObjReader myObjReader;
 
     if (!myObjReader.ParseFromFile(fname)) {
+        std::cout << "Failed to load .obj file!";
         return false;
     }
 
@@ -150,6 +151,10 @@ bool Scene::trace (Ray r, Intersection *isect) {
                 intersection = true;
                 curr_isect.f = BRDFs[(*prim_itr)->material_ndx];
                 *isect = curr_isect;
+
+                isect->x = r.x;
+                isect->y = r.y;
+
             }
             else if (curr_isect.depth < isect->depth) {
                 curr_isect.f = BRDFs[(*prim_itr)->material_ndx];

@@ -14,57 +14,50 @@ bool Mesh::TriangleIntersect (Ray r, Face f, Intersection *isect) {
     if(!f.bb.intersect(r))
         return false;
 
+    float EPSILON = 0.0000001;
     Point p0 = vertices[f.vert_ndx[0]];
     Point p1 = vertices[f.vert_ndx[1]];
     Point p2 = vertices[f.vert_ndx[2]];
 
-    float a,factor,u,v,t;
-    Vector edge1, edge2, h, s, q, wo;
+    Vector edge1, edge2, wo;
 
     edge1 = Vector(p1.X - p0.X, p1.Y - p0.Y, p1.Z - p0.Z);
     edge2 = Vector(p2.X - p0.X, p2.Y - p0.Y, p2.Z - p0.Z);
 
-    Vector n = edge1.cross(edge2);
-    n.Normalize();
+    Vector h = r.dir.cross(edge2);
 
-    // intersect ray with triangle plane
-    float nd = n.dot(r.dir);
-    if (nd == 0.f) return false; // ray is parallel to triangle
-    t = n.dot(Vector(p0.X - r.o.X, p0.Y - r.o.Y, p0.Y - r.o.Y)) / nd;
-    if (t <= 0.f) return false; // triangle is behind the ray
+    float a = edge1.dot(h);
+    if (a > -EPSILON && a < EPSILON)
+        return false;    // This ray is parallel to this triangle.
 
-    // compute intersection point
-    Point p = Point(r.o.X + r.dir.X * t, r.o.Y + r.dir.Y * t, r.o.Z + r.dir.Z * t);
+    float factor = 1.0/a;
+    Vector s = Vector(r.o.X - p0.X, r.o.Y - p0.Y, r.o.Z - p0.Z);
+    float u = factor * s.dot(h);
+    if (u < 0.0 || u > 1.0)
+        return false;
+    Vector q = s.cross(edge1);
+    float v = factor * r.dir.dot(q);
+    if (v < 0.0 || u + v > 1.0)
+        return false;
+    // At this stage we can compute t to find out where the intersection point is on the line.
+    float t = factor * edge2.dot(q);
+    if (t > EPSILON) // ray intersection
+    {
+        Point p = Point(r.o.X + r.dir.X * t, r.o.Y + r.dir.Y * t, r.o.Z + r.dir.Z * t);
+        // set intersection info
+        isect->p = p;
+        isect->gn = h;
+        isect->sn = h;
 
-    // inside/outside test
-    Vector c;
-    bool inside = true;
-    for (int i = 0; i < 3; ++i) {
-        Vector c1 = Vector(vertices[f.vert_ndx[(i + 1) % 3]].X - vertices[f.vert_ndx[i]].X,
-                           vertices[f.vert_ndx[(i + 1) % 3]].Y - vertices[f.vert_ndx[i]].Y,
-                           vertices[f.vert_ndx[(i + 1) % 3]].Z - vertices[f.vert_ndx[i]].Z);
-        Vector c2 = Vector(p.X - vertices[f.vert_ndx[i]].X,
-                           p.Y - vertices[f.vert_ndx[i]].Y,
-                           p.Y - vertices[f.vert_ndx[i]].Y);
-        c = c1.cross(c2);
-        if (c.dot(n) < 0.f) {
-            inside = false;
-            break;
-        }
+        wo = Vector(-r.dir.X, -r.dir.Y, -r.dir.Z);
+        wo.Normalize();
+
+        isect->wo = wo;
+        isect->depth = t;
+        return true;
     }
-    if (!inside) return false;
-
-    // set intersection info
-    isect->p = p;
-    isect->gn = n;
-    isect->sn = n;
-
-    wo = Vector(-r.dir.X, -r.dir.Y, -r.dir.Z);
-    wo.Normalize();
-
-    isect->wo = wo;
-    isect->depth = t;
-    return true;
+    else // This means that there is a line intersection but not a ray intersection.
+        return false;
 }
 
 bool Mesh::intersect (Ray r, Intersection *isect) {

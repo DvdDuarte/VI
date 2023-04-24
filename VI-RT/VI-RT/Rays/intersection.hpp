@@ -19,7 +19,7 @@ public:
     Vector wo;
     float depth;
     BRDF *f;
-    
+    int x, y;
     
     Intersection() {}
     // from pbrt book, section 2.10, pag 116
