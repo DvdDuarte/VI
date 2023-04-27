@@ -13,9 +13,9 @@
 
 class Light {
 public:
-    bool isAmbient;
+    bool isAmbient{};
     Light () {}
-    ~Light () {}
+    ~Light () = default;
     // return the Light RGB radiance for a given point : p
     virtual RGB L (Point p) {return RGB();}
     // return a point p and RGB radiance for a given probability pair prob[2]

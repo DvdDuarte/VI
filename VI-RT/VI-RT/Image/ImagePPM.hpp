@@ -5,8 +5,7 @@
 //  Created by Luis Paulo Santos on 09/03/2023.
 //
 
-#ifndef ImagePPM_hpp
-#define ImagePPM_hpp
+#pragma once
 
 #include <fstream>
 #include <algorithm>
@@ -33,4 +32,3 @@ public:
     bool Load(const std::string& filename);
 };
 
-#endif /* ImagePPM_hpp */

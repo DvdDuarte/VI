@@ -11,7 +11,6 @@
 
 // Constructor
 ImagePPM::ImagePPM(const int W, const int H) : Image(W, H) {
-    imagePlane = new RGB[W * H];
     imageToSave = nullptr;
 }
 
@@ -89,9 +88,7 @@ bool ImagePPM::Load(const std::string& filename) {
             file.read((char*)&g, 1);
             file.read((char*)&b, 1);
 
-            imagePlane[j * width + i].R = r / 255.0f;
-            imagePlane[j * width + i].G = g / 255.0f;
-            imagePlane[j * width + i].B = b / 255.0f;
+            SetPixel(i, j, RGB(r / 255.0f, g / 255.0f, b / 255.0f));
         }
     }
 
