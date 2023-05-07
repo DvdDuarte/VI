@@ -21,22 +21,48 @@ typedef struct BB {
         if (p.Z < min.Z) min.Z = p.Z;
         else if (p.Z > max.Z) max.Z = p.Z;
     }
+
     bool intersect (Ray r) {
+        Vector invRaydir = Vector(1/r.dir.X, 1/r.dir.Y, 1/r.dir.Z);
+        float tminx, tmaxx, tymin, tymax, tzmin, tzmax;
+        if (r.dir.X >= 0) {
+            tminx = (min.X - r.o.X);
+            tmaxx = (max.X - r.o.X);
+        }
+        else {
+            tminx = (max.X - r.o.X);
+            tmaxx = (min.X - r.o.X);
+        }
 
-        // Absolute distances to lower and upper box coordinates
+        if (r.dir.Y >= 0) {
+            tymin = (min.Y - r.o.Y) ;
+            tymax = (max.Y - r.o.Y) ;
+        }
+        else {
+            tymin = (max.Y - r.o.Y);
+            tymax = (min.Y - r.o.Y);
+        }
 
-        Point invRayDir = Point(1.0f/r.dir.X, 1.0f/r.dir.Y, 1.0f/r.dir.Z);
+        if (r.dir.Z >= 0) {
+            tzmin = (min.Z - r.o.Z);
+            tzmax = (max.Z - r.o.Z);
+        }
+        else {
+            tzmin = (max.Z - r.o.Z);
+            tzmax = (min.Z - r.o.Z);
+        }
 
-        Point tLower = Point((min.X - r.o.X) * invRayDir.X, (min.Y - r.o.Y) * invRayDir.Y, (min.Z - r.o.Z) * invRayDir.Z);
-        Point tUpper = Point((max.X - r.o.X) * invRayDir.X, (max.Y - r.o.Y) * invRayDir.Y, (max.Z - r.o.Z) * invRayDir.Z);
+        // min and max are minus origin
+        Vector tLower = Vector(tminx * invRaydir.X, tymin * invRaydir.Y, tzmin * invRaydir.Z);
+        Vector tUpper = Vector(tmaxx * invRaydir.X, tymax * invRaydir.Y, tzmax * invRaydir.Z);
 
-        // Easy to remember: ``max of mins, and min of maxes''
 
-        float tBoxMin = std::fmax(std::fmax(tLower.X, tLower.Y), tLower.Z);
-        float tBoxMax = std::fmin(std::fmin(tUpper.X, tUpper.Y), tUpper.Z);
+        float tBoxMin = fmax(fmax(tLower.X, tLower.Y), tLower.Z);
+        float tBoxMax = fmin(fmin(tUpper.X, tUpper.Y), tUpper.Z);
 
         return tBoxMin <= tBoxMax;
     }
+
 } BB;
 
 #endif /* AABB_hpp */

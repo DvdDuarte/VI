@@ -12,9 +12,9 @@ class Shader {
 protected:
     Scene *scene;
 public:
-    explicit Shader (Scene *_scene): scene(_scene) {}
-    ~Shader () = default;
-    virtual RGB shade (bool intersected, Intersection isect) {return {};}
+    Shader (Scene *_scene): scene(_scene) {}
+    ~Shader () {}
+    virtual RGB shade (bool intersected, Intersection isect, int depth) {return RGB();}
 };
 
 #endif //VI_RT_SHADER_HPP

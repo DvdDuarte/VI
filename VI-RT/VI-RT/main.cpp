@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
 
     // add an ambient light to the scene
     AmbientLight ambient(RGB(0.9,0.9,0.9));
-    scene.lights.push_back(&ambient);
+    scene.addLight(std::make_shared<AmbientLight>(ambient));
     scene.numLights++;
 
     // Image resolution
@@ -58,15 +58,4 @@ int main(int argc, const char * argv[]) {
 
     // save the image
     img->Save("MyImage.ppm");
-
-    // Load an existing PPM file
-    success = img->Load("MyImage.ppm");
-    if (!success) {
-        std::cout << "ERROR: Failed to load PPM file!\n";
-        return 1;
-    }
-    std::cout << "PPM Load: SUCCESS!! :-)\n";
-
-    std::cout << "That's all, folks!" << std::endl;
-    return 0;
 }

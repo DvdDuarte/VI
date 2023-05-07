@@ -6,7 +6,7 @@
 #include "AmbientShader.hpp"
 #include "Phong.hpp"
 
-RGB AmbientShader::shade(bool intersected, Intersection isect) {
+RGB AmbientShader::shade(bool intersected, Intersection isect, int depth) {
     RGB color(0.,0.,0.);
 
     // if no intersection, return background
@@ -21,13 +21,12 @@ RGB AmbientShader::shade(bool intersected, Intersection isect) {
 
     // ambient shade
     // Loop over scene's light sources and process Ambient Lights
-    for (auto & light : scene->lights) {
-        Point p_dummy;
+    for (auto light_itr = scene->lights.begin() ; light_itr != scene->lights.end() ; light_itr++) {
 
-        // is it an ambient light ?
-        if (!light->isAmbient) continue;
-
-        color += Ka * light->L(p_dummy);
+        if ((*light_itr)->type == AMBIENT_LIGHT) {  // is it an ambient light ?
+            color += Ka * (*light_itr)->L();
+            continue;
+        }
     }
 
     return color;

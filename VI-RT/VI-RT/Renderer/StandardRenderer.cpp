@@ -20,6 +20,7 @@ void StandardRenderer::Render () {
             Intersection isect;
             bool intersected;
             RGB color;
+            int depth = 0;
 
             // Generate Ray (camera)
             perspCam->GenerateRay(x,y, &primary, nullptr);
@@ -34,7 +35,7 @@ void StandardRenderer::Render () {
             intersected = scene->trace(primary, &isect);
 
             // shade this intersection (shader)
-            color = shd->shade(intersected, isect);
+            color = shd->shade(intersected, isect, depth);
 
             // write the result into the image frame buffer (image)
             img->set(x,y,color);
