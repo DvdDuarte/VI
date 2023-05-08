@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
 
     // add an ambient light to the scene
     AmbientLight ambient(RGB(0.9,0.9,0.9));
-    scene.addLight(std::make_shared<AmbientLight>(ambient));
+    scene.lights.push_back(&ambient);
     scene.numLights++;
 
     // Image resolution
@@ -44,7 +44,7 @@ int main(int argc, const char * argv[]) {
 
     // Camera parameters
     const Point Eye ={280,275,-330}, At={280,265,0};
-    const Vector Up={0,1,0};
+    const Vector Up={0,-1,0};
     const float fovW = 90, fovH = fovW * H/W;
     cam = new Perspective(Eye, At, Up, W, H, fovW, fovH);
 
@@ -58,4 +58,7 @@ int main(int argc, const char * argv[]) {
 
     // save the image
     img->Save("MyImage.ppm");
+
+    std::cout << "That's all, folks!" << std::endl;
+    return 0;
 }

@@ -14,7 +14,7 @@
 
 typedef struct Primitive {
     Geometry *g;
-    std::shared_ptr<BRDF> material;
+    int material_ndx;
 } Primitive;
 
 #endif /* primitive_hpp */

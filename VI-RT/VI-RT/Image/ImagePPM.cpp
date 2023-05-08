@@ -9,21 +9,6 @@
 #include <iostream>
 #include <algorithm>
 
-// Constructor
-ImagePPM::ImagePPM(const int W, const int H) : Image(W, H) {
-    imageToSave = nullptr;
-}
-
-// Destructor
-ImagePPM::~ImagePPM() {
-    delete[] imagePlane;
-    delete[] imageToSave;
-}
-
-void ImagePPM::SetPixel(const int x, const int y, const RGB &color) {
-    imagePlane[y * W + x] = color;
-}
-
 void ImagePPM::ToneMap() {
     imageToSave = new PPM_pixel[W * H];
 
@@ -52,9 +37,6 @@ bool ImagePPM::Save(std::string filename) {
     file.write((char*)imageToSave, W * H * sizeof(PPM_pixel));
 
     file.close();
-
-    delete[] imageToSave;
-    imageToSave = nullptr;
 
     return true;
 }

@@ -11,20 +11,18 @@ Perspective::Perspective(Point Eye, const Point At, const Vector Up, const int W
     dir.normalize();
     right = dir.cross(Up);
     right.normalize();  // Normalize 'right'
-    up = right.cross(dir);
-    forward = up.cross(right);
 
     c2w[0][0] = right.X;
     c2w[1][0] = right.Y;
     c2w[2][0] = right.Z;
 
-    c2w[0][1] = up.X;
-    c2w[1][1] = up.Y;
-    c2w[2][1] = up.Z;
+    c2w[0][1] = Up.X;
+    c2w[1][1] = Up.Y;
+    c2w[2][1] = Up.Z;
 
-    c2w[0][2] = forward.X;
-    c2w[1][2] = forward.Y;
-    c2w[2][2] = forward.Z;
+    c2w[0][2] = dir.X;
+    c2w[1][2] = dir.Y;
+    c2w[2][2] = dir.Z;
 }
 
 bool Perspective::GenerateRay(int x, int y, Ray *r, const float *cam_jitter) {

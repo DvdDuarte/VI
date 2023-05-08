@@ -41,7 +41,7 @@ public:
 
         int res = -1;
         for(int ver = 0; ver < numVertices; ver++){
-            if(vertex.X == vertices[ver].X && vertex.Y == vertices[ver].Y && vertex.Y == vertices[ver].Y) res = ver;
+            if(vertex.X == vertices[ver].X && vertex.Y == vertices[ver].Y && vertex.Z == vertices[ver].Z) res = ver;
         }
 
         return res;
