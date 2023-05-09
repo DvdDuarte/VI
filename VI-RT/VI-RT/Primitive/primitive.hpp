@@ -12,9 +12,9 @@
 #include "BRDF/BRDF.hpp"
 #include <memory>
 
-typedef struct Primitive {
+struct Primitive {
     Geometry *g;
-    int material_ndx;
-} Primitive;
+    std::shared_ptr<BRDF> material;
+};
 
 #endif /* primitive_hpp */

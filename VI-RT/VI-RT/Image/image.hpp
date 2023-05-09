@@ -5,8 +5,7 @@
 //  Created by Luis Paulo Santos on 10/02/2023.
 //
 
-#ifndef image_hpp
-#define image_hpp
+#pragma once
 
 #include "RGB.hpp"
 #include <cstring>
@@ -38,5 +37,3 @@ public:
 
     virtual bool Save (std::string filename) {return true;}
 };
-
-#endif /* image_hpp */

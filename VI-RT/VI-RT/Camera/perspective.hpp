@@ -4,9 +4,7 @@
 //
 //  Created by Luis Paulo Santos on 10/02/2023.
 //
-
-#ifndef perspective_hpp
-#define perspective_hpp
+#pragma once
 
 #include "camera.hpp"
 #include "ray.hpp"
@@ -28,5 +26,3 @@ public:
         *outH = H;
     }
 };
-
-#endif /* perspective_hpp */
