@@ -5,8 +5,7 @@
 //  Created by Luis Paulo Santos on 30/01/2023.
 //
 
-#ifndef Intersection_hpp
-#define Intersection_hpp
+#pragma once
 
 #include "vector.hpp"
 #include "BRDF.hpp"
@@ -30,5 +29,3 @@ public:
     Intersection(const Point &p, const Vector &n, const Vector &wo, const float &depth)
             : p(p), gn(n), sn(n), wo(wo), depth(depth), f(NULL) { }
 } Intersection;
-
-#endif /* Intersection_hpp */

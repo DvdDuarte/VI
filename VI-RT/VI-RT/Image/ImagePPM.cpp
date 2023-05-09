@@ -9,6 +9,7 @@
 #include <iostream>
 #include <algorithm>
 
+
 void ImagePPM::ToneMap() {
     imageToSave = new PPM_pixel[W * H];
 

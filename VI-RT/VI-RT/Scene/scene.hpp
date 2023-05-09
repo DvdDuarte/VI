@@ -9,6 +9,7 @@
 #define Scene_hpp
 
 #include <iostream>
+#include <memory>
 #include <string>
 #include <vector>
 #include "primitive.hpp"
@@ -18,10 +19,10 @@
 #include "BRDF.hpp"
 
 class Scene {
-    std::vector <Primitive *> prims;
-    std::vector <BRDF *> BRDFs;
 public:
-    std::vector <Light *> lights;
+    std::vector<std::shared_ptr<Primitive>> prims;
+    std::vector<std::shared_ptr<BRDF>> BRDFs;
+    std::vector<std::shared_ptr<Light>> lights;
     int numPrimitives, numLights, numBRDFs;
 
     Scene (): numPrimitives(0), numLights(0), numBRDFs(0) {}
@@ -33,6 +34,9 @@ public:
         std::cout << "#primitives = " << numPrimitives << " ; ";
         std::cout << "#lights = " << numLights << " ; ";
         std::cout << "#materials = " << numBRDFs << " ;" << std::endl;
+    }
+    void addLight(const std::shared_ptr<Light>& light) {
+        lights.push_back(light);
     }
 };
 

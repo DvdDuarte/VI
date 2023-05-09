@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
 
     // add an ambient light to the scene
     AmbientLight ambient(RGB(0.9,0.9,0.9));
-    scene.lights.push_back(&ambient);
+    scene.addLight(std::make_shared<AmbientLight>(ambient));
     scene.numLights++;
 
     // Image resolution

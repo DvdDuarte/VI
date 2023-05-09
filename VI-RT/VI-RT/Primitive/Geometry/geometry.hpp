@@ -14,8 +14,8 @@
 
 class Geometry {
 public:
-    Geometry () {}
-    ~Geometry () {}
+    Geometry () = default;
+    ~Geometry () = default;
     // return True if r intersects this geometric primitive
     // returns data about intersection on isect
     virtual bool intersect (Ray r, Intersection *isect) { return false; }

@@ -5,8 +5,7 @@
 //  Created by Luis Paulo Santos on 30/01/2023.
 //
 
-#ifndef Ray_hpp
-#define Ray_hpp
+#pragma once
 
 #include "vector.hpp"
 
@@ -28,6 +27,6 @@ public:
         o.Y = o.Y + offset.Y;
         o.Z = o.Z + offset.Z;
     }
+
 };
 
-#endif /* Ray_hpp */

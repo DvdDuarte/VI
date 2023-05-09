@@ -5,8 +5,8 @@
 //  Created by Luis Paulo Santos on 10/02/2023.
 //
 
-#ifndef camera_hpp
-#define camera_hpp
+#pragma once
+#include "ray.hpp"
 
 #include "ray.hpp"
 
@@ -16,5 +16,3 @@ public:
     virtual ~Camera() = default;
     virtual bool GenerateRay(int x, int y, Ray *r, const float *cam_jitter = nullptr) = 0;
 };
-
-#endif /* camera_hpp */
