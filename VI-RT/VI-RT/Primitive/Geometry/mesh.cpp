@@ -46,8 +46,8 @@ bool Mesh::TriangleIntersect (Ray r, Face f, Intersection *isect) {
         Point p = Point(r.o.X + r.dir.X * t, r.o.Y + r.dir.Y * t, r.o.Z + r.dir.Z * t);
         // set intersection info
         isect->p = p;
-        isect->gn = h;
-        isect->sn = h;
+        isect->gn = f.geoNormal;
+        isect->sn = f.geoNormal;
 
         wo = Vector(-r.dir.X, -r.dir.Y, -r.dir.Z);
         wo.normalize();

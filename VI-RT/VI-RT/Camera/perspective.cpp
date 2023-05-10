@@ -13,15 +13,15 @@ Perspective::Perspective(Point Eye, const Point At, const Vector Up, const int W
     right.normalize();  // Normalize 'right'
 
     c2w[0][0] = right.X;
-    c2w[1][0] = right.Y;
-    c2w[2][0] = right.Z;
+    c2w[0][1] = right.Y;
+    c2w[0][2] = right.Z;
 
-    c2w[0][1] = Up.X;
+    c2w[1][0] = Up.X;
     c2w[1][1] = Up.Y;
-    c2w[2][1] = Up.Z;
+    c2w[1][2] = Up.Z;
 
-    c2w[0][2] = dir.X;
-    c2w[1][2] = dir.Y;
+    c2w[2][0] = dir.X;
+    c2w[2][1] = dir.Y;
     c2w[2][2] = dir.Z;
 }
 
@@ -36,9 +36,9 @@ bool Perspective::GenerateRay(int x, int y, Ray *r, const float *cam_jitter) {
     Vector direction = Vector(xc, yc, 1);
 
     Vector worldDirection = Vector(
-            c2w[0][0] * direction.X + c2w[0][1] * direction.Y + c2w[0][2] * direction.Z,
-            c2w[1][0] * direction.X + c2w[1][1] * direction.Y + c2w[1][2] * direction.Z,
-            c2w[2][0] * direction.X + c2w[2][1] * direction.Y + c2w[2][2] * direction.Z
+            c2w[0][0] * direction.X + c2w[1][0] * direction.Y + c2w[2][0] * direction.Z,
+            c2w[0][1] * direction.X + c2w[1][1] * direction.Y + c2w[2][1] * direction.Z,
+            c2w[0][2] * direction.X + c2w[1][2] * direction.Y + c2w[2][2] * direction.Z
     );
 
     *r = Ray(Eye, worldDirection);

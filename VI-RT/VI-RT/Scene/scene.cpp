@@ -125,6 +125,22 @@ bool Scene::Load (const std::string &fname) {
                 ver++;
             }
 
+            Point v0 = mesh->vertices[face->vert_ndx[0]];
+            Point v1 = mesh->vertices[face->vert_ndx[1]];
+            Point v2 = mesh->vertices[face->vert_ndx[2]];
+
+            Vector edge1 = Vector(v1.X - v0.X,
+                                  v1.Y - v0.Y,
+                                  v1.Z - v0.Z);
+            Vector edge2 = Vector(v2.X - v0.X,
+                                  v2.Y - v0.Y,
+                                  v2.Z - v0.Z);
+
+            Vector normal = edge1.cross(edge2);
+            normal.normalize();
+
+            face->geoNormal = normal;
+
             mesh->faces.push_back(*face);
             mesh->numFaces++;
         }
