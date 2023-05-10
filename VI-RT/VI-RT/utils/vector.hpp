@@ -126,5 +126,4 @@ public:
     }
 };
 
-
 #endif /* vector_hpp */

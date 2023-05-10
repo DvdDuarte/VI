@@ -24,12 +24,6 @@ void StandardRenderer::Render () {
 
             // Generate Ray (camera)
             perspCam->GenerateRay(x,y, &primary, nullptr);
-            primary.x = x;
-            primary.y = y;
-
-            if(x == 512 && y == 512) {
-                printf("here");
-            }
 
             // trace ray (scene)
             intersected = scene->trace(primary, &isect);

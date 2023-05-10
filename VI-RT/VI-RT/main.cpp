@@ -13,6 +13,8 @@
 #include "AmbientLight.hpp"
 #include "Shader/AmbientShader.hpp"
 #include "StandardRenderer.hpp"
+#include "PointLight.hpp"
+#include "Shader/WhittedShader.hpp"
 
 int main(int argc, const char * argv[]) {
     Scene scene;
@@ -21,7 +23,7 @@ int main(int argc, const char * argv[]) {
     Shader *shd;
     bool success;
 
-    success = scene.Load("../VI-RT/Scene/tinyobjloader/models/cornell_box.obj");
+    success = scene.Load("../VI-RT/Scene/tinyobjloader/models/cornell_box_VI.obj");
 
     if (!success) {
         std::cout << "ERROR!! :o\n";
@@ -32,8 +34,13 @@ int main(int argc, const char * argv[]) {
     std::cout << std::endl;
 
     // add an ambient light to the scene
-    AmbientLight ambient(RGB(0.9,0.9,0.9));
+    AmbientLight ambient(RGB(0.05,0.05,0.05));
     scene.lights.push_back(&ambient);
+    scene.numLights++;
+    // add a point light to the scene
+    PointLight *pl1 = new PointLight(RGB(0.65,0.65,0.65),
+                                     Point(288,508,282));
+    scene.lights.push_back(pl1);
     scene.numLights++;
 
     // Image resolution
@@ -50,7 +57,7 @@ int main(int argc, const char * argv[]) {
 
     // create the shader
     RGB background(0.05, 0.05, 0.55);
-    shd = new AmbientShader(&scene, background);
+    shd = new WhittedShader(&scene, background);
     // declare the renderer
     StandardRenderer myRender (cam, &scene, img, shd);
     // render
