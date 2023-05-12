@@ -27,6 +27,12 @@ public:
         this->B += rhs.B;
         return *this;
     }
+    RGB operator/(double scalar) const {
+        return RGB(R / scalar, G / scalar, B / scalar);
+    }
+    RGB operator*(double scalar) const {
+        return RGB(R * scalar, G * scalar, B * scalar);
+    }
     RGB operator+(RGB const& obj) const
     {
         RGB res;

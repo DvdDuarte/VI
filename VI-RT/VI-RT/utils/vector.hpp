@@ -48,7 +48,7 @@ public:
         return X*v2.X + Y*v2.Y + Z*v2.Z;
     }
     // from pbrt book (3rd ed.), sec 2.2.1, pag 65
-    Vector cross (Vector v2) {
+    Vector cross (Vector v2) const {
         double v1x = X, v1y = Y, v1z = Z;
         double v2x = v2.X, v2y = v2.Y, v2z = v2.Z;
         return Vector((v1y * v2z) - (v1z * v2y),
@@ -92,6 +92,10 @@ public:
         vec.Y = X * Rx.Y + Y * Ry.Y + Z * Rz.Y;
         vec.Z = X * Rx.Z + Y * Ry.Z + Z * Rz.Z;
         return vec;
+    }
+    Vector normalize(const Vector& v) {
+        float length = std::sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
+        return Vector(v.X / length, v.Y / length, v.Z / length);
     }
 };
 

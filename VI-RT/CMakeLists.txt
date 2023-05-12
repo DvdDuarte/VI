@@ -48,5 +48,6 @@ add_executable(VI_RT
         VI-RT/utils/AABB.cpp
         VI-RT/utils/RGB.hpp
         VI-RT/utils/vector.hpp
-        VI-RT/main.cpp VI-RT/Light/AmbientLight.hpp VI-RT/Renderer/StandardRenderer.cpp VI-RT/Renderer/StandardRenderer.hpp VI-RT/Shader/Shader.hpp VI-RT/Shader/AmbientShader.cpp VI-RT/Shader/AmbientShader.hpp VI-RT/Shader/WhittedShader.cpp VI-RT/Shader/WhittedShader.hpp VI-RT/Light/PointLight.hpp VI-RT/Shader/DistributedShader.cpp VI-RT/Shader/DistributedShader.hpp)
+
+        VI-RT/main.cpp VI-RT/Light/AmbientLight.hpp VI-RT/Renderer/StandardRenderer.cpp VI-RT/Renderer/StandardRenderer.hpp VI-RT/Shader/Shader.hpp VI-RT/Shader/AmbientShader.cpp VI-RT/Shader/AmbientShader.hpp VI-RT/Shader/WhittedShader.cpp VI-RT/Shader/WhittedShader.hpp VI-RT/Light/PointLight.hpp VI-RT/Shader/DistributedShader.cpp VI-RT/Shader/DistributedShader.hpp VI-RT/Light/AreaLight.h VI-RT/Primitive/Geometry/Triangle.cpp VI-RT/Primitive/Geometry/Triangle.h)
 

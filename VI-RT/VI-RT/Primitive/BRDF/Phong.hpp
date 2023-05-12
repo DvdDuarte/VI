@@ -5,15 +5,38 @@
 //  Created by Luis Paulo Santos on 07/02/2023.
 //
 
-#ifndef Phong_hpp
-#define Phong_hpp
+#ifndef PHONG_HPP
+#define PHONG_HPP
 
-#include "RGB.hpp"
 #include "BRDF.hpp"
+#include "RGB.hpp"
+#include "vector.hpp"
+#include <algorithm>
 
-class Phong: public BRDF {
+class Phong : public BRDF {
 public:
-    RGB Ka, Kd, Ks, Kt;
+    Phong() {
+
+    }
+
+    RGB Kd;  // Diffuse reflectance
+    RGB Ks;  // Specular reflectance
+    float shininess;  // Phong exponent
+    RGB Ka, Kt;
+
+    Phong(const RGB &Kd2, const RGB &Ks2, float _shininess) : Kd(Kd2), Ks(Ks2), shininess(_shininess) {}
+
+    Vector normalize(const Vector& v) {
+        float length = std::sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
+        return {v.X / length, v.Y / length, v.Z / length};
+    }
+
+    virtual RGB f (Vector wi, Vector wo, const BRDF_TYPES = BRDF_ALL) override {
+        Vector h = normalize(wi + wo);
+        float dotProduct = std::max(0.f, wi.dot(h));
+        float spec = std::pow(dotProduct, shininess);
+        return (Kd / M_PI) + (Ks * spec * (shininess + 2) / (2 * M_PI));
+    }
 };
 
-#endif /* Phong_hpp */
+#endif // PHONG_HPP
