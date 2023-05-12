@@ -6,10 +6,10 @@
 //
 #include "perspective.hpp"
 
-Perspective::Perspective(Point Eye, const Point At, const Vector Up, const int W, const int H, const float fovW, const float fovH) : Eye(Eye), At(At), Up(Up), W(W), H(H), fovW(fovW), fovH(fovH) {
+Perspective::Perspective(Point Eye, const Point At, Vector Up, const int W, const int H, const float fovW, const float fovH) : Eye(Eye), At(At), Up(Up), W(W), H(H), fovW(fovW), fovH(fovH) {
     Vector dir = Eye.vec2point(At);
     dir.normalize();
-    right = up.cross(dir);
+    right = Up.cross(dir);
     right.normalize();  // Normalize 'right'
 
     c2w[0][0] = right.X;
