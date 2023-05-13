@@ -3,6 +3,7 @@
 .cproject
 .cw
 .idea/
+.cmake-build-debug
 
 # Compiled binary files
 bin/
