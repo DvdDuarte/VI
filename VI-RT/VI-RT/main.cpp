@@ -58,7 +58,7 @@ int main(int argc, const char * argv[]) {
 
     // create the shader
     RGB background(0.05, 0.05, 0.55);
-    shd = new WhittedShader(&scene, background);
+    shd = new DistributedShader(&scene, background);
     // declare the renderer
     StandardRenderer myRender (cam, &scene, img, shd);
     // render
