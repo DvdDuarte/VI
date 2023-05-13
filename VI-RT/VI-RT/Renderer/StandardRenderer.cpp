@@ -40,7 +40,7 @@ void StandardRenderer::Render () {
                 this_color = shd->shade (intersected, isect, depth);
                 color += this_color;
             }
-            color = color.operator*(1/spp);
+            color = color.operator*(static_cast<float>(1/spp));
 
             // write the result into the image frame buffer (image)
             img->set(x,y,color);

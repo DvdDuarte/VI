@@ -176,54 +176,6 @@ VI-RT/Image/ImagePPM.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Image/ImagePPM.cpp.s
 .PHONY : VI-RT/Image/ImagePPM.cpp.s
 
-VI-RT/Primitive/BRDF/Phong.obj: VI-RT/Primitive/BRDF/Phong.cpp.obj
-.PHONY : VI-RT/Primitive/BRDF/Phong.obj
-
-# target to build an object file
-VI-RT/Primitive/BRDF/Phong.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj
-.PHONY : VI-RT/Primitive/BRDF/Phong.cpp.obj
-
-VI-RT/Primitive/BRDF/Phong.i: VI-RT/Primitive/BRDF/Phong.cpp.i
-.PHONY : VI-RT/Primitive/BRDF/Phong.i
-
-# target to preprocess a source file
-VI-RT/Primitive/BRDF/Phong.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.i
-.PHONY : VI-RT/Primitive/BRDF/Phong.cpp.i
-
-VI-RT/Primitive/BRDF/Phong.s: VI-RT/Primitive/BRDF/Phong.cpp.s
-.PHONY : VI-RT/Primitive/BRDF/Phong.s
-
-# target to generate assembly for a file
-VI-RT/Primitive/BRDF/Phong.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.s
-.PHONY : VI-RT/Primitive/BRDF/Phong.cpp.s
-
-VI-RT/Primitive/Geometry/Triangle.obj: VI-RT/Primitive/Geometry/Triangle.cpp.obj
-.PHONY : VI-RT/Primitive/Geometry/Triangle.obj
-
-# target to build an object file
-VI-RT/Primitive/Geometry/Triangle.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.obj
-.PHONY : VI-RT/Primitive/Geometry/Triangle.cpp.obj
-
-VI-RT/Primitive/Geometry/Triangle.i: VI-RT/Primitive/Geometry/Triangle.cpp.i
-.PHONY : VI-RT/Primitive/Geometry/Triangle.i
-
-# target to preprocess a source file
-VI-RT/Primitive/Geometry/Triangle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.i
-.PHONY : VI-RT/Primitive/Geometry/Triangle.cpp.i
-
-VI-RT/Primitive/Geometry/Triangle.s: VI-RT/Primitive/Geometry/Triangle.cpp.s
-.PHONY : VI-RT/Primitive/Geometry/Triangle.s
-
-# target to generate assembly for a file
-VI-RT/Primitive/Geometry/Triangle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.s
-.PHONY : VI-RT/Primitive/Geometry/Triangle.cpp.s
-
 VI-RT/Primitive/Geometry/mesh.obj: VI-RT/Primitive/Geometry/mesh.cpp.obj
 .PHONY : VI-RT/Primitive/Geometry/mesh.obj
 
@@ -431,12 +383,6 @@ help:
 	@echo ... VI-RT/Image/ImagePPM.obj
 	@echo ... VI-RT/Image/ImagePPM.i
 	@echo ... VI-RT/Image/ImagePPM.s
-	@echo ... VI-RT/Primitive/BRDF/Phong.obj
-	@echo ... VI-RT/Primitive/BRDF/Phong.i
-	@echo ... VI-RT/Primitive/BRDF/Phong.s
-	@echo ... VI-RT/Primitive/Geometry/Triangle.obj
-	@echo ... VI-RT/Primitive/Geometry/Triangle.i
-	@echo ... VI-RT/Primitive/Geometry/Triangle.s
 	@echo ... VI-RT/Primitive/Geometry/mesh.obj
 	@echo ... VI-RT/Primitive/Geometry/mesh.i
 	@echo ... VI-RT/Primitive/Geometry/mesh.s

@@ -31,10 +31,11 @@ RGB DistributedShader::shade(bool intersected, Intersection isect) {
     Phong *f = (Phong *)isect.f;
 
     // if there is a specular component sample it
-    if (!f->Ks.isZero()) color += specularReflection (isect, f);
+
+    // if (!f->Ks.isZero()) color += specularReflection (isect, f);
 
     // if there is a diffuse component do direct light
-    if (!f->Kd.isZero()) color += directLighting(isect, f);
+    // if (!f->Kd.isZero()) color += directLighting(isect, f);
 
     return color;
 

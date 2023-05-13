@@ -80,12 +80,12 @@ clean: CMakeFiles/VI_RT.dir/clean
 CMakeFiles/VI_RT.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target VI_RT"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target VI_RT"
 .PHONY : CMakeFiles/VI_RT.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/VI_RT.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/VI_RT.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/VI_RT.dir/rule

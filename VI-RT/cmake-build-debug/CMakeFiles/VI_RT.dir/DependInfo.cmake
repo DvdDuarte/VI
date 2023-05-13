@@ -10,8 +10,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/GIT/VI/VI-RT/VI-RT/Camera/perspective.cpp" "CMakeFiles/VI_RT.dir/VI-RT/Camera/perspective.cpp.obj" "gcc" "CMakeFiles/VI_RT.dir/VI-RT/Camera/perspective.cpp.obj.d"
   "E:/GIT/VI/VI-RT/VI-RT/Image/ImagePPM.cpp" "CMakeFiles/VI_RT.dir/VI-RT/Image/ImagePPM.cpp.obj" "gcc" "CMakeFiles/VI_RT.dir/VI-RT/Image/ImagePPM.cpp.obj.d"
-  "E:/GIT/VI/VI-RT/VI-RT/Primitive/BRDF/Phong.cpp" "CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj" "gcc" "CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj.d"
-  "E:/GIT/VI/VI-RT/VI-RT/Primitive/Geometry/Triangle.cpp" "CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.obj" "gcc" "CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.obj.d"
   "E:/GIT/VI/VI-RT/VI-RT/Primitive/Geometry/mesh.cpp" "CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj" "gcc" "CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj.d"
   "E:/GIT/VI/VI-RT/VI-RT/Renderer/StandardRenderer.cpp" "CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj" "gcc" "CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj.d"
   "E:/GIT/VI/VI-RT/VI-RT/Scene/scene.cpp" "CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj" "gcc" "CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj.d"

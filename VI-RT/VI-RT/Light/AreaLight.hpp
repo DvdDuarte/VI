@@ -2,13 +2,13 @@
 // Created by kiko on 12/05/2023.
 //
 
-#ifndef VI_RT_AREALIGHT_H
-#define VI_RT_AREALIGHT_H
+#ifndef VI_RT_AREALIGHT_HPP
+#define VI_RT_AREALIGHT_HPP
 
 #include "light.hpp"
 #include "RGB.hpp"
 #include "vector.hpp"
-#include "Triangle.h"
+#include "Triangle.hpp"
 
 class AreaLight: public Light {
 public:
@@ -34,4 +34,4 @@ public:
         return intensity;
     }
 };
-#endif //VI_RT_AREALIGHT_H
+#endif //VI_RT_AREALIGHT_HPP

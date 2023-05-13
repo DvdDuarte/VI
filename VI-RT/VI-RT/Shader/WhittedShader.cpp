@@ -5,13 +5,14 @@
 //  Created by Luis Paulo Santos on 14/03/2023.
 //
 
+#include <cmath>
 #include <random>
 #include <chrono>
 #include "WhittedShader.hpp"
 #include "Phong.hpp"
 #include "ray.hpp"
 #include "PointLight.hpp"
-#include "AreaLight.h"
+#include "AreaLight.hpp"
 
 RGB WhittedShader::directLighting (Intersection isect, Phong *f) {
     RGB color(0.,0.,0.);
@@ -45,16 +46,32 @@ RGB WhittedShader::directLighting (Intersection isect, Phong *f) {
                 std::uniform_real_distribution<float> distribution(0.0, 1.0);
                 float r1 = distribution(generator);  // Generates a random float between 0 and 1
                 float r2 = distribution(generator);  // Generate a random float between 0 and 1
+                float r[2] = {r1, r2};
 
                 Point sample_position;
                 float light_pdf;
-                // RGB light_intensity = areaLight->Sample_L(r1, r2, &sample_position, &light_pdf);
+                RGB light_intensity = areaLight->Sample_L(r, &sample_position, light_pdf);
 
                 Vector direction_to_light = sample_position.vec2point(isect.p);
                 float distance_squared = direction_to_light.dot(direction_to_light);
                 direction_to_light.normalize();
 
                 Ray shadow_ray(isect.p, direction_to_light);
+
+                bool lightVisible = scene->visibility(shadow_ray, std::sqrt(distance_squared) - EPSILON);
+
+                // If the light sample is visible, calculate its contribution
+                if (lightVisible) {
+                    // The incident light direction is the normalized direction to the light
+                    Vector wi = direction_to_light.normalized();
+                    // The outgoing direction is the direction of the outgoing ray
+                    Vector wo = -isect.wo;
+                    RGB brdf_val = f->f(wi, wo);
+                    // Calculate the cosine of the angle between the incident light direction and the surface normal
+                    float cos_theta = std::max(0.f, direction_to_light.dot(isect.sn));
+                    // Calculate the contribution of the light sample to the accumulated light
+                    accumulated_light += brdf_val * cos_theta * (light_intensity / (distance_squared * light_pdf));
+                }
             }
 
             RGB final_light = accumulated_light / float(num_light_samples);

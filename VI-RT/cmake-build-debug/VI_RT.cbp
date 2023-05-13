@@ -144,7 +144,7 @@
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Light/AmbientLight.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
-		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Light/AreaLight.h">
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Light/AreaLight.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Light/PointLight.hpp">
@@ -159,16 +159,10 @@
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/BRDF/BRDF.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
-		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/BRDF/Phong.cpp">
-			<Option target="VI_RT"/>
-		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/BRDF/Phong.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
-		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/Geometry/Triangle.cpp">
-			<Option target="VI_RT"/>
-		</Unit>
-		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/Geometry/Triangle.h">
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/Geometry/Triangle.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/Geometry/geometry.hpp">

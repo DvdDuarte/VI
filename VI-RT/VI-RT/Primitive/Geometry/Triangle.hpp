@@ -2,8 +2,8 @@
 // Created by kiko on 12/05/2023.
 //
 
-#ifndef VI_RT_TRIANGLE_H
-#define VI_RT_TRIANGLE_H
+#ifndef VI_RT_TRIANGLE_HPP
+#define VI_RT_TRIANGLE_HPP
 
 
 #include <cmath>
@@ -35,4 +35,4 @@ public:
 };
 
 
-#endif //VI_RT_TRIANGLE_H
+#endif //VI_RT_TRIANGLE_HPP

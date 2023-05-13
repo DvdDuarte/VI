@@ -98,26 +98,11 @@ CMakeFiles/VI_RT.dir/VI-RT/Image/ImagePPM.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VI_RT.dir/VI-RT/Image/ImagePPM.cpp.s"
 	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\GIT\VI\VI-RT\VI-RT\Image\ImagePPM.cpp -o CMakeFiles\VI_RT.dir\VI-RT\Image\ImagePPM.cpp.s
 
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj: CMakeFiles/VI_RT.dir/flags.make
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/Primitive/BRDF/Phong.cpp
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj"
-	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\Primitive\BRDF\Phong.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\Primitive\BRDF\Phong.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\Primitive\BRDF\Phong.cpp
-
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.i"
-	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\GIT\VI\VI-RT\VI-RT\Primitive\BRDF\Phong.cpp > CMakeFiles\VI_RT.dir\VI-RT\Primitive\BRDF\Phong.cpp.i
-
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.s"
-	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\GIT\VI\VI-RT\VI-RT\Primitive\BRDF\Phong.cpp -o CMakeFiles\VI_RT.dir\VI-RT\Primitive\BRDF\Phong.cpp.s
-
 CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj: CMakeFiles/VI_RT.dir/flags.make
 CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
 CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/Primitive/Geometry/mesh.cpp
 CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj"
 	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\Primitive\Geometry\mesh.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\Primitive\Geometry\mesh.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\Primitive\Geometry\mesh.cpp
 
 CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.i: cmake_force
@@ -132,7 +117,7 @@ CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj: CMakeFiles/VI_RT.dir/flags.make
 CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
 CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/Scene/scene.cpp
 CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj"
 	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\Scene\scene.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\Scene\scene.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\Scene\scene.cpp
 
 CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.i: cmake_force
@@ -147,7 +132,7 @@ CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj: CMakeFiles/VI_RT.dir/flags.make
 CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
 CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/utils/AABB.cpp
 CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj"
 	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\utils\AABB.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\utils\AABB.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\utils\AABB.cpp
 
 CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.i: cmake_force
@@ -162,7 +147,7 @@ CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj: CMakeFiles/VI_RT.dir/flags.make
 CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
 CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/main.cpp
 CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj"
 	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/main.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\main.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\main.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\main.cpp
 
 CMakeFiles/VI_RT.dir/VI-RT/main.cpp.i: cmake_force
@@ -177,7 +162,7 @@ CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj: CMakeFiles/VI_RT.d
 CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
 CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/Renderer/StandardRenderer.cpp
 CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj"
 	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\Renderer\StandardRenderer.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\Renderer\StandardRenderer.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\Renderer\StandardRenderer.cpp
 
 CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.i: cmake_force
@@ -192,7 +177,7 @@ CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj: CMakeFiles/VI_RT.dir/fl
 CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
 CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/Shader/AmbientShader.cpp
 CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj"
 	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\Shader\AmbientShader.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\Shader\AmbientShader.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\Shader\AmbientShader.cpp
 
 CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.i: cmake_force
@@ -207,7 +192,7 @@ CMakeFiles/VI_RT.dir/VI-RT/Shader/WhittedShader.cpp.obj: CMakeFiles/VI_RT.dir/fl
 CMakeFiles/VI_RT.dir/VI-RT/Shader/WhittedShader.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
 CMakeFiles/VI_RT.dir/VI-RT/Shader/WhittedShader.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/Shader/WhittedShader.cpp
 CMakeFiles/VI_RT.dir/VI-RT/Shader/WhittedShader.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Shader/WhittedShader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Shader/WhittedShader.cpp.obj"
 	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/Shader/WhittedShader.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\Shader\WhittedShader.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\Shader\WhittedShader.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\Shader\WhittedShader.cpp
 
 CMakeFiles/VI_RT.dir/VI-RT/Shader/WhittedShader.cpp.i: cmake_force
@@ -222,7 +207,7 @@ CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.obj: CMakeFiles/VI_RT.di
 CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
 CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/Shader/DistributedShader.cpp
 CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.obj"
 	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\Shader\DistributedShader.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\Shader\DistributedShader.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\Shader\DistributedShader.cpp
 
 CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.i: cmake_force
@@ -233,26 +218,10 @@ CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.s"
 	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\GIT\VI\VI-RT\VI-RT\Shader\DistributedShader.cpp -o CMakeFiles\VI_RT.dir\VI-RT\Shader\DistributedShader.cpp.s
 
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.obj: CMakeFiles/VI_RT.dir/flags.make
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.obj: CMakeFiles/VI_RT.dir/includes_CXX.rsp
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.obj: E:/GIT/VI/VI-RT/VI-RT/Primitive/Geometry/Triangle.cpp
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.obj: CMakeFiles/VI_RT.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.obj"
-	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.obj -MF CMakeFiles\VI_RT.dir\VI-RT\Primitive\Geometry\Triangle.cpp.obj.d -o CMakeFiles\VI_RT.dir\VI-RT\Primitive\Geometry\Triangle.cpp.obj -c E:\GIT\VI\VI-RT\VI-RT\Primitive\Geometry\Triangle.cpp
-
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.i"
-	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\GIT\VI\VI-RT\VI-RT\Primitive\Geometry\Triangle.cpp > CMakeFiles\VI_RT.dir\VI-RT\Primitive\Geometry\Triangle.cpp.i
-
-CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.s"
-	C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8109.222\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\GIT\VI\VI-RT\VI-RT\Primitive\Geometry\Triangle.cpp -o CMakeFiles\VI_RT.dir\VI-RT\Primitive\Geometry\Triangle.cpp.s
-
 # Object files for target VI_RT
 VI_RT_OBJECTS = \
 "CMakeFiles/VI_RT.dir/VI-RT/Camera/perspective.cpp.obj" \
 "CMakeFiles/VI_RT.dir/VI-RT/Image/ImagePPM.cpp.obj" \
-"CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj" \
 "CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj" \
 "CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj" \
 "CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj" \
@@ -260,15 +229,13 @@ VI_RT_OBJECTS = \
 "CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj" \
 "CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj" \
 "CMakeFiles/VI_RT.dir/VI-RT/Shader/WhittedShader.cpp.obj" \
-"CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.obj" \
-"CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.obj"
+"CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.obj"
 
 # External object files for target VI_RT
 VI_RT_EXTERNAL_OBJECTS =
 
 VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Camera/perspective.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Image/ImagePPM.cpp.obj
-VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Primitive/BRDF/Phong.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/mesh.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Scene/scene.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/utils/AABB.cpp.obj
@@ -277,12 +244,11 @@ VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Renderer/StandardRenderer.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Shader/AmbientShader.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Shader/WhittedShader.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.obj
-VI_RT.exe: CMakeFiles/VI_RT.dir/VI-RT/Primitive/Geometry/Triangle.cpp.obj
 VI_RT.exe: CMakeFiles/VI_RT.dir/build.make
 VI_RT.exe: CMakeFiles/VI_RT.dir/linkLibs.rsp
 VI_RT.exe: CMakeFiles/VI_RT.dir/objects1
 VI_RT.exe: CMakeFiles/VI_RT.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable VI_RT.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\GIT\VI\VI-RT\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable VI_RT.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\VI_RT.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
