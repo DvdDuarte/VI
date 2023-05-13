@@ -15,6 +15,7 @@
 #include "PointLight.hpp"
 #include "Shader/WhittedShader.hpp"
 #include "AreaLight.hpp"
+#include "Shader/DistributedShader.hpp"
 
 int main(int argc, const char * argv[]) {
     Scene scene;
@@ -37,12 +38,14 @@ int main(int argc, const char * argv[]) {
     AmbientLight ambient(RGB(0.05,0.05,0.05));
     scene.lights.push_back(&ambient);
     scene.numLights++;
+    std::cout << "Ambient Light: SUCCESS!! :-)\n";
 
     // add a point light to the scene
     auto *pl1 = new PointLight(RGB(0.65,0.65,0.65),
                                      Point(288,508,282));
     scene.lights.push_back(pl1);
     scene.numLights++;
+    std::cout << "Point Light: SUCCESS!! :-)\n";
 
     // add an area light to the scene
     Point v1 = {100, 500, 200};
@@ -53,6 +56,7 @@ int main(int argc, const char * argv[]) {
     auto *al = new AreaLight(power, v1, v2, v3, n);
     scene.lights.push_back(al);
     scene.numLights++;
+    std::cout << "Area Light: SUCCESS!! :-)\n";
 
     // Image resolution
     const int W= 1024;
