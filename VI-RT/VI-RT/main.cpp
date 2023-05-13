@@ -11,11 +11,10 @@
 #include "renderer.hpp"
 #include "ImagePPM.hpp"
 #include "AmbientLight.hpp"
-#include "Shader/AmbientShader.hpp"
 #include "StandardRenderer.hpp"
 #include "PointLight.hpp"
 #include "Shader/WhittedShader.hpp"
-#include "Shader/DistributedShader.hpp"
+#include "AreaLight.hpp"
 
 int main(int argc, const char * argv[]) {
     Scene scene;
@@ -38,10 +37,21 @@ int main(int argc, const char * argv[]) {
     AmbientLight ambient(RGB(0.05,0.05,0.05));
     scene.lights.push_back(&ambient);
     scene.numLights++;
+
     // add a point light to the scene
-    PointLight *pl1 = new PointLight(RGB(0.65,0.65,0.65),
+    auto *pl1 = new PointLight(RGB(0.65,0.65,0.65),
                                      Point(288,508,282));
     scene.lights.push_back(pl1);
+    scene.numLights++;
+
+    // add an area light to the scene
+    Point v1 = {100, 500, 200};
+    Point v2 = {200, 500, 300};
+    Point v3 = {300, 500, 200};
+    Vector n = {0, -1, 0}; // Normal vector of the triangle, pointing downwards
+    RGB power = {0.75, 0.75, 0.75}; // Power of the light
+    auto *al = new AreaLight(power, v1, v2, v3, n);
+    scene.lights.push_back(al);
     scene.numLights++;
 
     // Image resolution

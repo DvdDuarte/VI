@@ -95,7 +95,7 @@ public:
     }
     Vector normalize(const Vector& v) {
         float length = std::sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
-        return Vector(v.X / length, v.Y / length, v.Z / length);
+        return {v.X / length, v.Y / length, v.Z / length};
     }
 
     Vector normalized() const {
@@ -103,7 +103,7 @@ public:
         return {X / norm, Y / norm, Z / norm};
     }
     Vector operator-() const {
-        return Vector(-X, -Y, -Z);
+        return {-X, -Y, -Z};
     }
 };
 
@@ -124,6 +124,7 @@ public:
     friend Point operator*(const double f, const Point& p) {
         return p*f;
     }
+    Point operator +(const Vector &v) const { return {X + v.X, Y + v.Y, Z + v.Z}; }
     inline void set(float x, float y, float z) {
         X=x;Y=y;Z=z;
     }
