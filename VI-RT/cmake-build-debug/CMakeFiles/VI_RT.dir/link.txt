@@ -1,3 +1,0 @@
-C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\cmake\win\x64\bin\cmake.exe -E rm -f CMakeFiles\VI_RT.dir/objects.a
-C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\ar.exe qc CMakeFiles\VI_RT.dir/objects.a @CMakeFiles\VI_RT.dir\objects1.rsp
-C:\Users\kiko\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\223.8836.42\bin\mingw\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\VI_RT.dir/objects.a -Wl,--no-whole-archive -o VI_RT.exe -Wl,--out-implib,libVI_RT.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\VI_RT.dir\linklibs.rsp

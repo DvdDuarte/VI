@@ -97,6 +97,14 @@ public:
         float length = std::sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
         return Vector(v.X / length, v.Y / length, v.Z / length);
     }
+
+    Vector normalized() const {
+        float norm = std::sqrt(X * X + Y * Y + Z * Z);
+        return {X / norm, Y / norm, Z / norm};
+    }
+    Vector operator-() const {
+        return Vector(-X, -Y, -Z);
+    }
 };
 
 class Point {

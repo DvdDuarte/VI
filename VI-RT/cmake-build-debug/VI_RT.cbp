@@ -11,10 +11,10 @@
 				<Option working_dir="E:/GIT/VI/VI-RT/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="VI_RT">
@@ -43,19 +43,19 @@
 					<Add directory="E:/GIT/VI/VI-RT/VI-RT/Scene/tinyobjloader/mapbox"/>
 					<Add directory="E:/GIT/VI/VI-RT/VI-RT/Scene/tinyobjloader/tests"/>
 					<Add directory="E:/GIT/VI/VI-RT/VI-RT/utils"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 VI_RT"/>
-					<CompileFile command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 VI_RT"/>
+					<CompileFile command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="VI_RT/fast">
@@ -84,39 +84,39 @@
 					<Add directory="E:/GIT/VI/VI-RT/VI-RT/Scene/tinyobjloader/mapbox"/>
 					<Add directory="E:/GIT/VI/VI-RT/VI-RT/Scene/tinyobjloader/tests"/>
 					<Add directory="E:/GIT/VI/VI-RT/VI-RT/utils"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
-					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../include"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed"/>
+					<Add directory="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/11.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 VI_RT/fast"/>
-					<CompileFile command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 VI_RT/fast"/>
+					<CompileFile command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="E:/GIT/VI/VI-RT/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="E:/GIT/VI/VI-RT/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/223.8836.42/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/kiko/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8109.222/bin/mingw/bin/mingw32-make.exe -f &quot;E:/GIT/VI/VI-RT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -144,6 +144,12 @@
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Light/AmbientLight.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Light/AreaLight.hpp">
+			<Option target="VI_RT"/>
+		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Light/PointLight.hpp">
+			<Option target="VI_RT"/>
+		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Light/light.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
@@ -153,10 +159,10 @@
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/BRDF/BRDF.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
-		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/BRDF/Phong.cpp">
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/BRDF/Phong.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
-		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/BRDF/Phong.hpp">
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/Geometry/Triangle.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Primitive/Geometry/geometry.hpp">
@@ -198,7 +204,19 @@
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/AmbientShader.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/DistributedShader.cpp">
+			<Option target="VI_RT"/>
+		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/DistributedShader.hpp">
+			<Option target="VI_RT"/>
+		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/Shader.hpp">
+			<Option target="VI_RT"/>
+		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/WhittedShader.cpp">
+			<Option target="VI_RT"/>
+		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/WhittedShader.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/main.cpp">

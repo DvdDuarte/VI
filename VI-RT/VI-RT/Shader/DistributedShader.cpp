@@ -3,7 +3,7 @@
 //
 
 #include "DistributedShader.hpp"
-#include "AreaLight.h"
+#include "AreaLight.hpp"
 
 RGB DistributedShader::directLighting (Intersection isect, Phong *f) {
     RGB color(0.,0.,0.);
@@ -118,10 +118,11 @@ RGB DistributedShader::shade(bool intersected, Intersection isect) {
     Phong *f = (Phong *)isect.f;
 
     // if there is a specular component sample it
-    if (!f->Ks.isZero()) color += specularReflection (isect, f);
+
+    // if (!f->Ks.isZero()) color += specularReflection (isect, f);
 
     // if there is a diffuse component do direct light
-    if (!f->Kd.isZero()) color += directLighting(isect, f);
+    // if (!f->Kd.isZero()) color += directLighting(isect, f);
 
     return color;
 
