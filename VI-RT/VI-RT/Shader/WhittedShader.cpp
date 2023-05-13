@@ -56,7 +56,9 @@ RGB WhittedShader::directLighting (Intersection isect, Phong *f) {
                 float distance_squared = direction_to_light.dot(direction_to_light);
                 direction_to_light.normalize();
 
-                Ray shadow_ray(isect.p, direction_to_light);
+                // Adjust the origin point of the ray to avoid self-intersection
+                Point adjusted_origin(isect.p.X + isect.gn.X * EPSILON, isect.p.Y + isect.gn.Y * EPSILON, isect.p.Z + isect.gn.Z * EPSILON);
+                Ray shadow_ray(adjusted_origin, direction_to_light);
 
                 bool lightVisible = scene->visibility(shadow_ray, std::sqrt(distance_squared) - EPSILON);
 
