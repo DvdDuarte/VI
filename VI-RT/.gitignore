@@ -3,6 +3,7 @@
 .cproject
 .cw
 .idea/
+.cmake-build-debug/
 
 # Compiled binary files
 bin/
@@ -11,6 +12,7 @@ out/
 # Object files
 *.o
 *.obj
+*.exe
 
 # Libraries
 *.a
