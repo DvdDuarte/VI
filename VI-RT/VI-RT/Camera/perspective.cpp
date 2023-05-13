@@ -27,23 +27,26 @@ Perspective::Perspective(Point Eye, const Point At, Vector Up, const int W, cons
 
 bool Perspective::GenerateRay(int x, int y, Ray *r, const float *cam_jitter) {
 
-    float xc, yc;
+    float xc, yc, xs, ys;
 
     // Aplicar camera jitter para adicionar noise (estocasticamente)
     if (cam_jitter==NULL) {
-        xc = 2.f * ((float)x + .5f)/W - 1.f;
-        yc = 2.f * ((float)(H-y-1) + .5f)/H - 1.f;
+        xs = (2.0f * (x + 0.5f) / W) - 1.0f;
+        ys = (2.0f * (y + 0.5f) / H) - 1.0f;
     } else {
-        xc = 2.f * ((float)x + cam_jitter[0])/W - 1.f;
-        yc = 2.f * ((float)(H-y-1) + cam_jitter[1])/H - 1.f;
+        xs = 2.f * ((float)x + cam_jitter[0])/W - 1.f;
+        ys = 2.f * ((float)(H-y-1) + cam_jitter[1])/H - 1.f;
     }
+
+    xc = xs * tan(fovW / 2);
+    yc = ys * tan(fovH / 2);
 
     Vector direction = Vector(xc, yc, 1);
 
     Vector worldDirection = Vector(
-            c2w[0][0] * direction.X + c2w[1][0] * direction.Y + c2w[2][0] * direction.Z,
-            c2w[0][1] * direction.X + c2w[1][1] * direction.Y + c2w[2][1] * direction.Z,
-            c2w[0][2] * direction.X + c2w[1][2] * direction.Y + c2w[2][2] * direction.Z
+            c2w[0][0] * direction.X + c2w[0][1] * direction.Y + c2w[0][2] * direction.Z,
+            c2w[1][0] * direction.X + c2w[1][1] * direction.Y + c2w[1][2] * direction.Z,
+            c2w[2][0] * direction.X + c2w[2][1] * direction.Y + c2w[2][2] * direction.Z
     );
 
     *r = Ray(Eye, worldDirection);

@@ -24,23 +24,25 @@ void StandardRenderer::Render () {
             bool intersected;
             int depth = 0;
 
-            for (ss=0 ; ss < spp ; ss++) {
-                float jitterV[2];
+            for (ss=0 ; ss < spp ; ss++){
 
-                jitterV[0] = getRandom(0,1);
-                jitterV[1] = getRandom(0,1);
+                float jitter[2];
+
+                jitter[0] = getRandom(0, 1);
+                jitter[1] = getRandom(0, 1);
 
                 // Generate Ray (camera)
-                cam->GenerateRay(x, y, &primary, jitterV);
+                perspCam->GenerateRay(x,y, &primary, jitter);
 
                 // trace ray (scene)
                 intersected = scene->trace(primary, &isect);
 
                 // shade this intersection (shader)
-                this_color = shd->shade (intersected, isect, depth);
+                this_color = shd->shade(intersected, isect, depth);
+
                 color += this_color;
             }
-            color = color.operator*(1/spp);
+            color = color / spp;
 
             // write the result into the image frame buffer (image)
             img->set(x,y,color);

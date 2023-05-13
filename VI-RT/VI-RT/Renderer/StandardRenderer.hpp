@@ -13,10 +13,11 @@ public:
     void Render ();
 
     float getRandom(int min, int max) {
-        srand(time(NULL)); // Seed the random number generator with the current time
-        int random_num = rand() % (max - min + 1) + min;
+        srand(time(nullptr)); // Seed the random number generator with the current time
 
-        return random_num;
+        float random = static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX);
+
+        return min + random * (max - min);
     };
 };
 

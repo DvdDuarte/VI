@@ -15,6 +15,7 @@
 #include "StandardRenderer.hpp"
 #include "PointLight.hpp"
 #include "Shader/WhittedShader.hpp"
+#include "Shader/DistributedShader.hpp"
 
 int main(int argc, const char * argv[]) {
     Scene scene;
