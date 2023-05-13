@@ -26,12 +26,17 @@ Perspective::Perspective(Point Eye, const Point At, Vector Up, const int W, cons
 }
 
 bool Perspective::GenerateRay(int x, int y, Ray *r, const float *cam_jitter) {
-    float xs = (2.0f * (x + 0.5f) / W) - 1.0f;
 
-    float ys = (2.0f * (y + 0.5f) / H) - 1.0f;
+    float xc, yc;
 
-    float xc = xs * tan(fovW / 2);
-    float yc = ys * tan(fovH / 2);
+    // Aplicar camera jitter para adicionar noise (estocasticamente)
+    if (cam_jitter==NULL) {
+        xc = 2.f * ((float)x + .5f)/W - 1.f;
+        yc = 2.f * ((float)(H-y-1) + .5f)/H - 1.f;
+    } else {
+        xc = 2.f * ((float)x + cam_jitter[0])/W - 1.f;
+        yc = 2.f * ((float)(H-y-1) + cam_jitter[1])/H - 1.f;
+    }
 
     Vector direction = Vector(xc, yc, 1);
 

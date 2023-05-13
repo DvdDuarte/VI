@@ -5,9 +5,11 @@
 #include "StandardRenderer.hpp"
 #include "perspective.hpp"
 
+const int spp=32;
+
 void StandardRenderer::Render () {
     int W=0,H=0;  // resolution
-    int x,y;
+    int x,y,ss;
 
     // get resolution from the camera
     Perspective* perspCam = dynamic_cast<Perspective*>(cam);
@@ -16,20 +18,29 @@ void StandardRenderer::Render () {
     // main rendering loop: get primary rays from the camera until done
     for (y=0 ; y< H ; y++) {  // loop over rows
         for (x=0 ; x< W ; x++) { // loop over columns
+            RGB color(0.,0.,0.), this_color;
             Ray primary;
             Intersection isect;
             bool intersected;
-            RGB color;
             int depth = 0;
 
-            // Generate Ray (camera)
-            perspCam->GenerateRay(x,y, &primary, nullptr);
+            for (ss=0 ; ss < spp ; ss++) {
+                float jitterV[2];
 
-            // trace ray (scene)
-            intersected = scene->trace(primary, &isect);
+                jitterV[0] = getRandom(0,1);
+                jitterV[1] = getRandom(0,1);
 
-            // shade this intersection (shader)
-            color = shd->shade(intersected, isect, depth);
+                // Generate Ray (camera)
+                cam->GenerateRay(x, y, &primary, jitterV);
+
+                // trace ray (scene)
+                intersected = scene->trace(primary, &isect);
+
+                // shade this intersection (shader)
+                this_color = shd->shade (intersected, isect, depth);
+                color += this_color;
+            }
+            color = color.operator*(1/spp);
 
             // write the result into the image frame buffer (image)
             img->set(x,y,color);
