@@ -1,8 +1,30 @@
-# Directories
-.idea/                # Exclude CLion project files
-build/                # Exclude build output directory
 
-# Files
-*.o                   # Exclude object files
-*.exe                 # Exclude executable files
-*.so                  # Exclude shared library files
+# CLion project files
+.cproject
+.cw
+.idea/
+
+# Compiled binary files
+bin/
+out/
+
+# Object files
+*.o
+*.obj
+*.exe
+
+# Libraries
+*.a
+*.lib
+
+# Compiled dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Generated files
+gen/
+
+# Editor-specific files
+*.swp
+*~
