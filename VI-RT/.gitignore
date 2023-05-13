@@ -1,0 +1,8 @@
+# Directories
+.idea/                # Exclude CLion project files
+build/                # Exclude build output directory
+
+# Files
+*.o                   # Exclude object files
+*.exe                 # Exclude executable files
+*.so                  # Exclude shared library files
