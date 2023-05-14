@@ -34,22 +34,51 @@ int main(int argc, const char * argv[]) {
     scene.printSummary();
     std::cout << std::endl;
 
+
     // add an ambient light to the scene
     AmbientLight ambient(RGB(0.05,0.05,0.05));
     scene.lights.push_back(&ambient);
     scene.numLights++;
     std::cout << "Ambient Light: SUCCESS!! :-)\n";
 
+    /*
+    // add a point light to the scene
+    auto *pl1 = new PointLight(RGB(0.65,0.65,0.65),
+                                     Point(288,508,282));
+    scene.lights.push_back(pl1);
+    scene.numLights++;
+    std::cout << "Point Light: SUCCESS!! :-)\n";
+    */
+
     // add first area light to the scene
     Point v1 = {0, 548, 0};
     Point v2 = {111.2, 548, 0};
     Point v3 = {111.2, 548, 559.2};
-    Vector n = {0, -1, 0};
-    RGB power = {0.5, 0.5, 0.5};
+    Vector n = {0, -1, 0}; // Normal vector of the triangle, pointing downwards
+    RGB power = {1.0, 1.0, 1.0}; // Power of the light (bright white light)
 
     auto* al1 = new AreaLight(power, v1, v2, v3, n);
     scene.lights.push_back(al1);
     scene.numLights++;
+
+    // Add additional area lights near the ceiling
+    v1 = {350.0, 548.8, 150.0};
+    v2 = {450.0, 548.8, 150.0};
+    v3 = {450.0, 548.8, 250.0};
+
+    auto* al4 = new AreaLight(power, v1, v2, v3, n);
+    scene.lights.push_back(al4);
+    scene.numLights++;
+
+    // Add an area light to the scene
+    v1 = {213.0, 548.0, 227.0};
+    v2 = {213.0, 548.0, 332.0};
+    v3 = {343.0, 548.0, 332.0};
+
+    auto* al = new AreaLight(power, v1, v2, v3, n);
+    scene.lights.push_back(al);
+    scene.numLights++;
+
     std::cout << "Area Lights: SUCCESS!! :-)\n";
 
     // Image resolution
