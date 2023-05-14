@@ -22,10 +22,10 @@ public:
 
     RGB Kd;  // Diffuse reflectance
     RGB Ks;  // Specular reflectance
-    float shininess{};  // Phong exponent
+    float Ns{};  // Phong exponent
     RGB Ka, Kt;
 
-    Phong(const RGB &Kd2, const RGB &Ks2, float _shininess) : Kd(Kd2), Ks(Ks2), shininess(_shininess) {}
+    Phong(const RGB &Kd2, const RGB &Ks2, float _ns) : Kd(Kd2), Ks(Ks2), Ns(_ns) {}
 
     Vector normalize(const Vector& v) {
         float length = std::sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
@@ -35,8 +35,8 @@ public:
     RGB f (Vector wi, Vector wo, const BRDF_TYPES = BRDF_ALL) override {
         Vector h = normalize(wi + wo);
         float dotProduct = std::max(0.f, wi.dot(h));
-        float spec = std::pow(dotProduct, shininess);
-        return (Kd / M_PI) + (Ks * spec * (shininess + 2) / (2 * M_PI));
+        float spec = std::pow(dotProduct, Ns);
+        return (Kd / M_PI) + (Ks * spec * (Ns + 2) / (2 * M_PI));
     }
 
     RGB Sample_f (Vector wi, float *prob, Vector *wo, const BRDF_TYPES = BRDF_ALL) override {
