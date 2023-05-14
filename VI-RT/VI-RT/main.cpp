@@ -34,11 +34,13 @@ int main(int argc, const char * argv[]) {
     scene.printSummary();
     std::cout << std::endl;
 
+    /*
     // add an ambient light to the scene
     AmbientLight ambient(RGB(0.05,0.05,0.05));
     scene.lights.push_back(&ambient);
     scene.numLights++;
     std::cout << "Ambient Light: SUCCESS!! :-)\n";
+    */
 
     /*
     // add a point light to the scene
@@ -54,7 +56,7 @@ int main(int argc, const char * argv[]) {
     Point v2 = {111.2, 548, 0};
     Point v3 = {111.2, 548, 559.2};
     Vector n = {0, -1, 0};
-    RGB power = {0.2, 0.2, 0.2};
+    RGB power = {0.9, 0.9, 0.9};
 
     auto* al1 = new AreaLight(power, v1, v2, v3, n);
     scene.lights.push_back(al1);

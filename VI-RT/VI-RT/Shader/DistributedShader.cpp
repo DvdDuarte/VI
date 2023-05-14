@@ -4,48 +4,44 @@
 
 #include <chrono>
 #include <random>
+#include <omp.h>
 #include "DistributedShader.hpp"
 #include "AreaLight.hpp"
 
 RGB DistributedShader::areaLight(Intersection isect, Phong* f, Light* l, RGB color, std::uniform_real_distribution<float> distribution, std::default_random_engine generator) {
     // Perform Monte Carlo sampling of the area light
     auto *areaLight = dynamic_cast<AreaLight *>(l);
-    int num_light_samples = 16;
+    int num_light_samples = 4;
     RGB accumulated_light(0., 0., 0.);
+    omp_set_num_threads(4);
 #pragma omp parallel default(none) shared(distribution,generator,areaLight, isect, f, num_light_samples, accumulated_light) firstprivate(color)
     {
         RGB local_accumulated_light(0.,0.,0.);
 #pragma omp for
         for (int sample = 0; sample < num_light_samples; ++sample) {
-            float r1 = distribution(generator);  // Generates a random float between 0 and 1
-            float r2 = distribution(generator);  // Generate a random float between 0 and 1
-            float r[2] = {r1, r2};
+            float r[2] = {distribution(generator), distribution(generator)};
 
             Point sample_position;
             float light_pdf;
             RGB light_intensity = areaLight->Sample_L(r, &sample_position, light_pdf);
 
             Vector direction_to_light = sample_position.vec2point(isect.p);
-            float distance_squared = direction_to_light.dot(direction_to_light);
             direction_to_light.normalize();
 
             Ray shadow_ray(isect.p + isect.gn * EPSILON, direction_to_light);
 
-            bool lightVisible = scene->visibility(shadow_ray, std::sqrt(distance_squared) - EPSILON);
-
             // If the light sample is visible, calculate its contribution
-            if (lightVisible) {
+            if (scene->visibility(shadow_ray, std::sqrt(direction_to_light.dot(direction_to_light)) - EPSILON)) {
                 // The incident light direction is the normalized direction to the light
                 Vector wi = direction_to_light.normalized();
                 // The outgoing direction is the direction of the outgoing ray
                 Vector wo = -isect.wo;
-                RGB brdf_val = f->f(wi, wo);
-                // Calculate the cosine of the angle between the incident light direction and the surface normal
-                float cos_theta = std::max(0.f, direction_to_light.dot(isect.sn));
                 // Calculate the contribution of the light sample to the accumulated light
-                local_accumulated_light += brdf_val * cos_theta * (light_intensity / (distance_squared * light_pdf));
+                local_accumulated_light += light_intensity * f->f(wi, wo) * std::max(0.f, direction_to_light.dot(isect.sn)) *
+                                           (1 / (direction_to_light.dot(direction_to_light) * light_pdf));
             }
         }
+
 #pragma omp critical
         accumulated_light += local_accumulated_light;
     }
@@ -57,7 +53,7 @@ RGB DistributedShader::areaLight(Intersection isect, Phong* f, Light* l, RGB col
 
 
 RGB DistributedShader::pointLight(Intersection isect, Phong* f, Light* l, RGB color) {
-
+    std::cout << "PointLight used in shading." << std::endl;
     if (!f->Kd.isZero()) {
         Point lpoint;
         // get the position and radiance of the light source
@@ -92,7 +88,6 @@ RGB DistributedShader::pointLight(Intersection isect, Phong* f, Light* l, RGB co
 
 RGB DistributedShader::directLighting(Intersection isect, Phong* f) {
     RGB color(0.,0.,0.);
-    int numLights;  // Get the number of lights in the scene
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine generator(seed);
     std::uniform_real_distribution<float> distribution(0.0, 1.0);
