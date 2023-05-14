@@ -60,7 +60,6 @@ int main(int argc, const char * argv[]) {
 
     std::cout << "Area Light: SUCCESS!! :-)\n";
 
-
     // Image resolution
     const int W= 1024;
     const int H= 1024;
@@ -76,7 +75,7 @@ int main(int argc, const char * argv[]) {
     // create the shader
     RGB background(0.05, 0.05, 0.55);
     std::cout << "everything done -> going inside the shader: SUCCESS!! :-)\n";
-    shd = new WhittedShader(&scene, background);
+    shd = new DistributedShader(&scene, background);
     // declare the renderer
     StandardRenderer myRender (cam, &scene, img, shd);
     // render

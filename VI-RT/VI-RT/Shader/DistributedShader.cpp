@@ -162,12 +162,12 @@ RGB DistributedShader::specularReflection(Intersection isect, Phong *f){
     bool intersected = scene->trace(specular, &s_isect);
 
     // shade this intersection
-    RGB color = shade(intersected, s_isect);
+    RGB color = shade(intersected, s_isect, 0);
 
     return color;
 }
 
-RGB DistributedShader::shade(bool intersected, Intersection isect) {
+RGB DistributedShader::shade(bool intersected, Intersection isect, int depth) {
     RGB color(0.,0.,0.);
     if (!intersected) return (background);
 
@@ -182,6 +182,7 @@ RGB DistributedShader::shade(bool intersected, Intersection isect) {
     if (!f->Kd.isZero()) {
         color += directLighting(isect, f);
 
+        /**
         // Monte Carlo sampling of the diffuse component
         int num_diffuse_samples = 64;  // Number of samples for the diffuse component
         RGB accumulated_diffuse(0.,0.,0.);
@@ -205,6 +206,7 @@ RGB DistributedShader::shade(bool intersected, Intersection isect) {
 
         RGB final_diffuse = accumulated_diffuse / float(num_diffuse_samples);
         color += final_diffuse;
+    */
     }
 
     return color;
