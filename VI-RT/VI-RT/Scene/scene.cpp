@@ -12,6 +12,7 @@
 #include "primitive.hpp"
 #include "mesh.hpp"
 #include "Phong.hpp"
+#include "AreaLight.hpp"
 
 #include <iostream>
 #include <set>
@@ -173,6 +174,26 @@ bool Scene::trace (Ray r, Intersection *isect) {
             }
         }
     }
+    isect->isLight = false; // download new intersection.hpp
+
+    for (auto l = lights.begin() ; l != lights.end() ; l++) {
+        if ((*l)->type == AREA_LIGHT) {
+            AreaLight *al = (AreaLight *) *l;
+            if (al->gem->intersect(r, &curr_isect)) {
+                if (!intersection) { // first intersection
+                    intersection = true;
+                    *isect = curr_isect;
+                    isect->isLight = true;
+                    isect->Le = al->L();
+                } else if (curr_isect.depth < isect->depth) {
+                    *isect = curr_isect;
+                    isect->isLight = true;
+                    isect->Le = al->L();
+                }
+            }
+        }
+    }
+
     return intersection;
 }
 
