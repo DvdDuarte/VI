@@ -6,7 +6,7 @@
 #include "perspective.hpp"
 #include <omp.h>
 
-const int spp = 4;
+const int spp = 16;
 
 void StandardRenderer::Render() {
     int W = 0, H = 0;  // resolution
@@ -35,8 +35,8 @@ void StandardRenderer::Render() {
 
                     float jitter[2];
 
-                    jitter[0] = getRandom(0, 1);
-                    jitter[1] = getRandom(0, 1);
+                    jitter[0] = Vector::generateRandomFloat();
+                    jitter[1] = Vector::generateRandomFloat();
 
                     // Generate Ray (camera)
                     perspCam->GenerateRay(x, y, &primary, jitter);

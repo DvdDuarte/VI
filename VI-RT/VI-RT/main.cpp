@@ -34,70 +34,22 @@ int main(int argc, const char * argv[]) {
     scene.printSummary();
     std::cout << std::endl;
 
-    /*
     // add an ambient light to the scene
     AmbientLight ambient(RGB(0.05,0.05,0.05));
     scene.lights.push_back(&ambient);
     scene.numLights++;
     std::cout << "Ambient Light: SUCCESS!! :-)\n";
-    */
 
-    /*
-    // add a point light to the scene
-    auto *pl1 = new PointLight(RGB(0.65,0.65,0.65),
-                                     Point(288,508,282));
-    scene.lights.push_back(pl1);
-    scene.numLights++;
-    std::cout << "Point Light: SUCCESS!! :-)\n";
-    */
-
-// add first area light to the scene
+    // add first area light to the scene
     Point v1 = {0, 548, 0};
     Point v2 = {111.2, 548, 0};
     Point v3 = {111.2, 548, 559.2};
     Vector n = {0, -1, 0};
-    RGB power = {0.9, 0.9, 0.9};
+    RGB power = {0.5, 0.5, 0.5};
 
     auto* al1 = new AreaLight(power, v1, v2, v3, n);
     scene.lights.push_back(al1);
     scene.numLights++;
-
-// add second area light to the scene
-    v1 = {111.2, 548, 0};
-    v2 = {222.4, 548, 0};
-    v3 = {222.4, 548, 559.2};
-
-    auto* al2 = new AreaLight(power, v1, v2, v3, n);
-    scene.lights.push_back(al2);
-    scene.numLights++;
-
-// add third area light to the scene
-    v1 = {222.4, 548, 0};
-    v2 = {333.6, 548, 0};
-    v3 = {333.6, 548, 559.2};
-
-    auto* al3 = new AreaLight(power, v1, v2, v3, n);
-    scene.lights.push_back(al3);
-    scene.numLights++;
-
-// add fourth area light to the scene
-    v1 = {333.6, 548, 0};
-    v2 = {444.8, 548, 0};
-    v3 = {444.8, 548, 559.2};
-
-    auto* al4 = new AreaLight(power, v1, v2, v3, n);
-    scene.lights.push_back(al4);
-    scene.numLights++;
-
-// add fifth area light to the scene
-    v1 = {444.8, 548, 0};
-    v2 = {556, 548, 0};
-    v3 = {556, 548, 559.2};
-
-    auto* al5 = new AreaLight(power, v1, v2, v3, n);
-    scene.lights.push_back(al5);
-    scene.numLights++;
-
     std::cout << "Area Lights: SUCCESS!! :-)\n";
 
     // Image resolution

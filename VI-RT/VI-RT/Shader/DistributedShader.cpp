@@ -51,9 +51,50 @@ RGB DistributedShader::areaLight(Intersection isect, Phong* f, Light* l, RGB col
     return color;
 }
 
+RGB DistributedShader::areaLight_NS(Intersection isect, Phong* f, Light* l, RGB color, std::uniform_real_distribution<float> distribution, std::default_random_engine generator){
+    if (!f->Kd.isZero()) {
+        RGB L, Kd = f->Kd;
+        Point lpoint;
+        float l_pdf;
+        AreaLight *al = dynamic_cast<AreaLight*>(l);
+
+        float rnd[2];
+        rnd[0] = distribution(generator);
+        rnd[1] = distribution(generator);
+        L = al->Sample_L(rnd, &lpoint, l_pdf);
+
+        // compute the direction from the intersection point to the light source
+        Vector Ldir = isect.p.vec2point(lpoint);
+        const float Ldistance = Ldir.norm();
+
+        // now normalize Ldir
+        Ldir.normalize();
+
+        // cosine between Ldir and the shading normal at the intersection point
+        float cosL = Ldir.dot(isect.sn);
+
+        // cosine between Ldir and the area light source normal
+        float cosL_LA = Ldir.dot(al->gem->normal);
+
+        // shade
+        if (cosL>0. and cosL_LA<=0.) { // light NOT behind primitive AND light normal points to the ray o
+
+            // generate the shadow ray
+            Ray shadow(isect.p, Ldir);
+
+            // adjust origin EPSILON along the normal: avoid self occlusion
+            shadow.adjustOrigin(isect.gn);
+
+            if (scene->visibility(shadow, Ldistance-EPSILON)) { // light source not occluded
+                color += (Kd * L * cosL) / l_pdf;
+            }
+        } // end cosL > 0.
+    }
+
+    return color;
+}
 
 RGB DistributedShader::pointLight(Intersection isect, Phong* f, Light* l, RGB color) {
-    std::cout << "PointLight used in shading." << std::endl;
     if (!f->Kd.isZero()) {
         Point lpoint;
         // get the position and radiance of the light source
@@ -104,7 +145,7 @@ RGB DistributedShader::directLighting(Intersection isect, Phong* f) {
             color = pointLight(isect, f, light, color);
         }
         if (light->type == AREA_LIGHT) {
-            color = areaLight(isect, f, light, color, distribution, generator);
+            color = areaLight_NS(isect, f, light, color, distribution, generator);
         }
     }
     return color;

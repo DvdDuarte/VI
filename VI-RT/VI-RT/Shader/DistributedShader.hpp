@@ -20,6 +20,10 @@ public:
 
     RGB areaLight(Intersection isect, Phong *f, Light *l, RGB color, std::uniform_real_distribution<float> distribution,
                   std::default_random_engine generator);
+
+    RGB
+    areaLight_NS(Intersection isect, Phong *f, Light *l, RGB color, std::uniform_real_distribution<float> distribution,
+                 std::default_random_engine generator);
 };
 
 #endif //VI_RT_DISTRIBUTEDSHADER_HPP
