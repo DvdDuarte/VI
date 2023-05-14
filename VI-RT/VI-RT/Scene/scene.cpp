@@ -176,9 +176,9 @@ bool Scene::trace (Ray r, Intersection *isect) {
     }
 
     isect->isLight = false; // download new intersection.hpp
-    for (auto l = lights.begin() ; l != lights.end() ; l++) {
-        if ((*l)->type == AREA_LIGHT) {
-            AreaLight *al = (AreaLight *)*l;
+    for (auto & light : lights) {
+        if (light->type == AREA_LIGHT) {
+            AreaLight *al = (AreaLight *)light;
             if (al->gem->intersect(r, &curr_isect)) {
                 if (!intersection) { // first intersection
                     intersection = true;
@@ -216,11 +216,10 @@ bool Scene::trace_recursive(Ray r, Intersection* isect, int depth) {
         }
     }
 
-    // iterate over all light sources
     isect->isLight = false; // download new intersection.hpp
-    for (auto l = lights.begin() ; l != lights.end() ; l++) {
-        if ((*l)->type == AREA_LIGHT) {
-            AreaLight *al = (AreaLight *)*l;
+    for (auto & light : lights) {
+        if (light->type == AREA_LIGHT) {
+            AreaLight *al = (AreaLight *)light;
             if (al->gem->intersect(r, &curr_isect)) {
                 if (!intersection) { // first intersection
                     intersection = true;
