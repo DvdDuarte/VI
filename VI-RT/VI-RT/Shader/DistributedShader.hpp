@@ -15,7 +15,7 @@ class DistributedShader: public Shader {
     RGB specularReflection(Intersection isect, Phong *f);
 public:
     DistributedShader(Scene *scene, RGB bg) : background(bg), Shader(scene) {}
-    RGB shade(bool intersected, Intersection isect);
+    RGB shade(bool intersected, Intersection isect, int depth);
 };
 
 #endif //VI_RT_DISTRIBUTEDSHADER_HPP
