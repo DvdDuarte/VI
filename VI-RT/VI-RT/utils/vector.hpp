@@ -9,6 +9,8 @@
 #define vector_hpp
 
 #include <cmath>
+#include <chrono>
+#include <random>
 
 class Vector {
 public:
@@ -97,13 +99,48 @@ public:
         float length = std::sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
         return {v.X / length, v.Y / length, v.Z / length};
     }
-
     Vector normalized() const {
         float norm = std::sqrt(X * X + Y * Y + Z * Z);
         return {X / norm, Y / norm, Z / norm};
     }
     Vector operator-() const {
         return {-X, -Y, -Z};
+    }
+    static Vector generateRandomHemisphereDirection() {
+        unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+        std::default_random_engine generator(seed);
+        std::uniform_real_distribution<float> distribution(0.0, 1.0);
+
+        // Generate two random numbers
+        float u = distribution(generator);
+        float v = distribution(generator);
+
+        // Convert uniform random numbers into spherical coordinates with a uniform distribution over the hemisphere
+        float theta = 2 * M_PI * u; // azimuthal angle
+        float phi = std::acos(2*v - 1); // polar angle
+
+        // Convert spherical coordinates to Cartesian coordinates
+        float x = std::cos(theta) * std::sin(phi);
+        float y = std::sin(theta) * std::sin(phi);
+        float z = std::cos(phi);
+
+        return {x, y, z};
+    }
+    static float generateRandomFloat() {
+        unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+        std::default_random_engine generator(seed);
+        std::uniform_real_distribution<float> distribution(0.0, 1.0);
+
+        // Generate two random numbers
+        return distribution(generator);
+    }
+
+    static float dot(const Vector& a, const Vector& b) {
+        return a.X * b.X + a.Y * b.Y + a.Z * b.Z;
+    }
+
+    static Vector reflect(const Vector& incident, const Vector& normal) {
+        return incident - 2 * dot(incident, normal) * normal;
     }
 };
 

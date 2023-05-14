@@ -27,6 +27,59 @@ RGB WhittedShader::directLighting (Intersection isect, Phong *f) {
             }
             continue;
         }
+        if ((*l)->type == AREA_LIGHT) {
+            // Perform Monte Carlo sampling of the area light
+            auto* areaLight = dynamic_cast<AreaLight*>(*l);
+
+            /*
+             * popular numbers are 16, 64 and 256
+             * However, the optimal number of samples can depend on various factors
+             * such as the complexity of the light source and the shading model.
+            */
+            int num_light_samples = 64;
+
+            RGB accumulated_light(0.,0.,0.);
+
+            for (int sample = 0; sample < num_light_samples; ++sample) {
+                unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+                std::default_random_engine generator(seed);
+                std::uniform_real_distribution<float> distribution(0.0, 1.0);
+                float r1 = distribution(generator);  // Generates a random float between 0 and 1
+                float r2 = distribution(generator);  // Generate a random float between 0 and 1
+                float r[2] = {r1, r2};
+
+                Point sample_position;
+                float light_pdf;
+                RGB light_intensity = areaLight->Sample_L(r, &sample_position, light_pdf);
+
+                Vector direction_to_light = sample_position.vec2point(isect.p);
+                float distance_squared = direction_to_light.dot(direction_to_light);
+                direction_to_light.normalize();
+
+                // Adjust the origin point of the ray to avoid self-intersection
+                Point adjusted_origin(isect.p.X + isect.gn.X * EPSILON, isect.p.Y + isect.gn.Y * EPSILON, isect.p.Z + isect.gn.Z * EPSILON);
+                Ray shadow_ray(adjusted_origin, direction_to_light);
+
+                bool lightVisible = scene->visibility(shadow_ray, std::sqrt(distance_squared) - EPSILON);
+
+                // If the light sample is visible, calculate its contribution
+                if (lightVisible) {
+                    // The incident light direction is the normalized direction to the light
+                    Vector wi = direction_to_light.normalized();
+                    // The outgoing direction is the direction of the outgoing ray
+                    Vector wo = -isect.wo;
+                    RGB brdf_val = f->f(wi, wo);
+                    // Calculate the cosine of the angle between the incident light direction and the surface normal
+                    float cos_theta = std::max(0.f, direction_to_light.dot(isect.sn));
+                    // Calculate the contribution of the light sample to the accumulated light
+                    accumulated_light += brdf_val * cos_theta * (light_intensity / (distance_squared * light_pdf));
+                }
+            }
+
+            RGB final_light = accumulated_light / float(num_light_samples);
+            color = color + final_light;
+        }
+
         if ((*l)->type == POINT_LIGHT) {  // is it a point light ?
             if (!f->Kd.isZero()) {
                 Point lpoint;

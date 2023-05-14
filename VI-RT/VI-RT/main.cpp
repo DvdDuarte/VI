@@ -48,15 +48,18 @@ int main(int argc, const char * argv[]) {
     std::cout << "Point Light: SUCCESS!! :-)\n";
 
     // add an area light to the scene
-    Point v1 = {100, 500, 200};
-    Point v2 = {200, 500, 300};
-    Point v3 = {300, 500, 200};
+    Point v1 = {100, 548, 100};
+    Point v2 = {456, 548, 100};
+    Point v3 = {456, 548, 459};
     Vector n = {0, -1, 0}; // Normal vector of the triangle, pointing downwards
-    RGB power = {0.75, 0.75, 0.75}; // Power of the light
-    auto *al = new AreaLight(power, v1, v2, v3, n);
+    RGB power = {0.9, 0.9, 0.9}; // Power of the light (bright white light)
+
+    auto* al = new AreaLight(power, v1, v2, v3, n);
     scene.lights.push_back(al);
     scene.numLights++;
+
     std::cout << "Area Light: SUCCESS!! :-)\n";
+
 
     // Image resolution
     const int W= 1024;
@@ -72,6 +75,7 @@ int main(int argc, const char * argv[]) {
 
     // create the shader
     RGB background(0.05, 0.05, 0.55);
+    std::cout << "everything done -> going inside the shader: SUCCESS!! :-)\n";
     shd = new DistributedShader(&scene, background);
     // declare the renderer
     StandardRenderer myRender (cam, &scene, img, shd);
