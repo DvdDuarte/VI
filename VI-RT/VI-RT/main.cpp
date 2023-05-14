@@ -40,25 +40,63 @@ int main(int argc, const char * argv[]) {
     scene.numLights++;
     std::cout << "Ambient Light: SUCCESS!! :-)\n";
 
+    /*
     // add a point light to the scene
     auto *pl1 = new PointLight(RGB(0.65,0.65,0.65),
                                      Point(288,508,282));
     scene.lights.push_back(pl1);
     scene.numLights++;
     std::cout << "Point Light: SUCCESS!! :-)\n";
+    */
 
-    // add an area light to the scene
-    Point v1 = {100, 548, 100};
-    Point v2 = {456, 548, 100};
-    Point v3 = {456, 548, 459};
-    Vector n = {0, -1, 0}; // Normal vector of the triangle, pointing downwards
-    RGB power = {0.9, 0.9, 0.9}; // Power of the light (bright white light)
+// add first area light to the scene
+    Point v1 = {0, 548, 0};
+    Point v2 = {111.2, 548, 0};
+    Point v3 = {111.2, 548, 559.2};
+    Vector n = {0, -1, 0};
+    RGB power = {0.2, 0.2, 0.2};
 
-    auto* al = new AreaLight(power, v1, v2, v3, n);
-    scene.lights.push_back(al);
+    auto* al1 = new AreaLight(power, v1, v2, v3, n);
+    scene.lights.push_back(al1);
     scene.numLights++;
 
-    std::cout << "Area Light: SUCCESS!! :-)\n";
+// add second area light to the scene
+    v1 = {111.2, 548, 0};
+    v2 = {222.4, 548, 0};
+    v3 = {222.4, 548, 559.2};
+
+    auto* al2 = new AreaLight(power, v1, v2, v3, n);
+    scene.lights.push_back(al2);
+    scene.numLights++;
+
+// add third area light to the scene
+    v1 = {222.4, 548, 0};
+    v2 = {333.6, 548, 0};
+    v3 = {333.6, 548, 559.2};
+
+    auto* al3 = new AreaLight(power, v1, v2, v3, n);
+    scene.lights.push_back(al3);
+    scene.numLights++;
+
+// add fourth area light to the scene
+    v1 = {333.6, 548, 0};
+    v2 = {444.8, 548, 0};
+    v3 = {444.8, 548, 559.2};
+
+    auto* al4 = new AreaLight(power, v1, v2, v3, n);
+    scene.lights.push_back(al4);
+    scene.numLights++;
+
+// add fifth area light to the scene
+    v1 = {444.8, 548, 0};
+    v2 = {556, 548, 0};
+    v3 = {556, 548, 559.2};
+
+    auto* al5 = new AreaLight(power, v1, v2, v3, n);
+    scene.lights.push_back(al5);
+    scene.numLights++;
+
+    std::cout << "Area Lights: SUCCESS!! :-)\n";
 
     // Image resolution
     const int W= 1024;

@@ -219,7 +219,7 @@ bool Scene::trace_recursive(Ray r, Intersection* isect, int depth) {
     isect->isLight = false; // download new intersection.hpp
     for (auto & light : lights) {
         if (light->type == AREA_LIGHT) {
-            AreaLight *al = (AreaLight *)light;
+            auto *al = (AreaLight *)light;
             if (al->gem->intersect(r, &curr_isect)) {
                 if (!intersection) { // first intersection
                     intersection = true;
