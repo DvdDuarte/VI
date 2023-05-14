@@ -20,38 +20,41 @@ void StandardRenderer::Render() {
     omp_set_num_threads(4);
 
     // main rendering loop: get primary rays from the camera until done
-    #pragma omp parallel for private(x, ss) schedule(dynamic, 1) // Parallelize outer loop
-    for (y = 0; y < H; y++) {  // loop over rows
-        for (x = 0; x < W; x++) { // loop over columns
-            RGB color(0., 0., 0.), this_color;
-            Ray primary;
-            Intersection isect;
-            bool intersected;
-            int depth = 0;
+    #pragma omp parallel default(none) shared(perspCam) private(x, ss, H, W)
+    {
+    #pragma omp for schedule(dynamic, 1)// Parallelize outer loop
+        for (y = 0; y < H; y++) {  // loop over rows
+            for (x = 0; x < W; x++) { // loop over columns
+                RGB color(0., 0., 0.), this_color;
+                Ray primary;
+                Intersection isect;
+                bool intersected;
+                int depth = 0;
 
-            for (ss = 0; ss < spp; ss++) {
+                for (ss = 0; ss < spp; ss++) {
 
-                float jitter[2];
+                    float jitter[2];
 
-                jitter[0] = getRandom(0, 1);
-                jitter[1] = getRandom(0, 1);
+                    jitter[0] = getRandom(0, 1);
+                    jitter[1] = getRandom(0, 1);
 
-                // Generate Ray (camera)
-                perspCam->GenerateRay(x, y, &primary, jitter);
+                    // Generate Ray (camera)
+                    perspCam->GenerateRay(x, y, &primary, jitter);
 
-                // trace ray (scene)
-                intersected = scene->trace(primary, &isect);
+                    // trace ray (scene)
+                    intersected = scene->trace(primary, &isect);
 
-                // shade this intersection (shader)
-                this_color = shd->shade(intersected, isect, depth);
+                    // shade this intersection (shader)
+                    this_color = shd->shade(intersected, isect, depth);
 
-                color += this_color;
-            }
-            color = color / spp;
+                    color += this_color;
+                }
+                color = color / spp;
 
-            // write the result into the image frame buffer (image)
-            img->set(x, y, color);
+                // write the result into the image frame buffer (image)
+                img->set(x, y, color);
 
-        } // loop over columns
-    }   // loop over rows
+            } // loop over columns
+        }   // loop over rows
+    }
 }
