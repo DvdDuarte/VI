@@ -12,16 +12,17 @@
 #include "RGB.hpp"
 #include "vector.hpp"
 #include <algorithm>
+#include <cmath>
+#include <random>
+#include <chrono>
 
 class Phong : public BRDF {
 public:
-    Phong() {
-
-    }
+    Phong() = default;
 
     RGB Kd;  // Diffuse reflectance
     RGB Ks;  // Specular reflectance
-    float shininess;  // Phong exponent
+    float shininess{};  // Phong exponent
     RGB Ka, Kt;
 
     Phong(const RGB &Kd2, const RGB &Ks2, float _shininess) : Kd(Kd2), Ks(Ks2), shininess(_shininess) {}
@@ -31,12 +32,23 @@ public:
         return {v.X / length, v.Y / length, v.Z / length};
     }
 
-    virtual RGB f (Vector wi, Vector wo, const BRDF_TYPES = BRDF_ALL) override {
+    RGB f (Vector wi, Vector wo, const BRDF_TYPES = BRDF_ALL) override {
         Vector h = normalize(wi + wo);
         float dotProduct = std::max(0.f, wi.dot(h));
         float spec = std::pow(dotProduct, shininess);
         return (Kd / M_PI) + (Ks * spec * (shininess + 2) / (2 * M_PI));
     }
+
+    RGB Sample_f (Vector wi, float *prob, Vector *wo, const BRDF_TYPES = BRDF_ALL) override {
+        // Generate a random direction over the hemisphere
+        *wo = Vector::generateRandomHemisphereDirection();
+
+        // Calculate the PDF of this direction
+        *prob = 1 / (2 * M_PI); // For a uniform hemisphere distribution, the PDF is 1 / (2 * PI)
+
+        return f(wi, *wo);
+    }
+
 };
 
 #endif // PHONG_HPP

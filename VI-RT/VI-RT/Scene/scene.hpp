@@ -23,11 +23,15 @@ class Scene {
 public:
     std::vector <Light *> lights;
     int numPrimitives, numLights, numBRDFs;
+    float terminationThreshold = 0.1;
+    int maxDepth{};
 
     Scene (): numPrimitives(0), numLights(0), numBRDFs(0) {}
     bool Load (const std::string &fname);
     bool SetLights (void) { return true; };
     bool trace (Ray r, Intersection *isect);
+    bool trace_2(Ray r, Intersection* isect);
+    bool trace_recursive(Ray r, Intersection* isect, int depth);
     bool visibility (Ray s, const float maxL);
     void printSummary(void) {
         std::cout << "#primitives = " << numPrimitives << " ; ";
