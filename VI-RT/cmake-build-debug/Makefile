@@ -296,6 +296,30 @@ VI-RT/Shader/DistributedShader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Shader/DistributedShader.cpp.s
 .PHONY : VI-RT/Shader/DistributedShader.cpp.s
 
+VI-RT/Shader/PathTracerShader.obj: VI-RT/Shader/PathTracerShader.cpp.obj
+.PHONY : VI-RT/Shader/PathTracerShader.obj
+
+# target to build an object file
+VI-RT/Shader/PathTracerShader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Shader/PathTracerShader.cpp.obj
+.PHONY : VI-RT/Shader/PathTracerShader.cpp.obj
+
+VI-RT/Shader/PathTracerShader.i: VI-RT/Shader/PathTracerShader.cpp.i
+.PHONY : VI-RT/Shader/PathTracerShader.i
+
+# target to preprocess a source file
+VI-RT/Shader/PathTracerShader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Shader/PathTracerShader.cpp.i
+.PHONY : VI-RT/Shader/PathTracerShader.cpp.i
+
+VI-RT/Shader/PathTracerShader.s: VI-RT/Shader/PathTracerShader.cpp.s
+.PHONY : VI-RT/Shader/PathTracerShader.s
+
+# target to generate assembly for a file
+VI-RT/Shader/PathTracerShader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\VI_RT.dir\build.make CMakeFiles/VI_RT.dir/VI-RT/Shader/PathTracerShader.cpp.s
+.PHONY : VI-RT/Shader/PathTracerShader.cpp.s
+
 VI-RT/Shader/WhittedShader.obj: VI-RT/Shader/WhittedShader.cpp.obj
 .PHONY : VI-RT/Shader/WhittedShader.obj
 
@@ -398,6 +422,9 @@ help:
 	@echo ... VI-RT/Shader/DistributedShader.obj
 	@echo ... VI-RT/Shader/DistributedShader.i
 	@echo ... VI-RT/Shader/DistributedShader.s
+	@echo ... VI-RT/Shader/PathTracerShader.obj
+	@echo ... VI-RT/Shader/PathTracerShader.i
+	@echo ... VI-RT/Shader/PathTracerShader.s
 	@echo ... VI-RT/Shader/WhittedShader.obj
 	@echo ... VI-RT/Shader/WhittedShader.i
 	@echo ... VI-RT/Shader/WhittedShader.s

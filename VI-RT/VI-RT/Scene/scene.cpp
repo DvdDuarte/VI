@@ -197,6 +197,7 @@ bool Scene::trace (Ray r, Intersection *isect) {
     return intersection;
 }
 
+//currently not used
 bool Scene::trace_recursive(Ray r, Intersection* isect, int depth) {
     Intersection curr_isect;
     bool intersection = false;
@@ -275,6 +276,7 @@ bool Scene::trace_recursive(Ray r, Intersection* isect, int depth) {
     return true;
 }
 
+//currently not used
 bool Scene::trace_2(Ray r, Intersection* isect) {
     return trace_recursive(r, isect, 0);
 }

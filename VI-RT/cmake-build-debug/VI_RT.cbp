@@ -210,6 +210,12 @@
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/DistributedShader.hpp">
 			<Option target="VI_RT"/>
 		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/PathTracerShader.cpp">
+			<Option target="VI_RT"/>
+		</Unit>
+		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/PathTracerShader.hpp">
+			<Option target="VI_RT"/>
+		</Unit>
 		<Unit filename="E:/GIT/VI/VI-RT/VI-RT/Shader/Shader.hpp">
 			<Option target="VI_RT"/>
 		</Unit>

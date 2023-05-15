@@ -47,6 +47,9 @@ public:
     bool isZero () const {
         return ((R==0.) && (G==0.) && (B==0.));
     }
+    float maxChannelValue() const {
+        return std::max(std::max(R, G), B);
+    }
 };
 
 #endif /* RGB_hpp */

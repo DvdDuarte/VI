@@ -41,19 +41,10 @@ int main(int argc, const char * argv[]) {
     scene.numLights++;
     std::cout << "Ambient Light: SUCCESS!! :-)\n";
 
-    /*
-    // add a point light to the scene
-    auto *pl1 = new PointLight(RGB(0.65,0.65,0.65),
-                                     Point(288,508,282));
-    scene.lights.push_back(pl1);
-    scene.numLights++;
-    std::cout << "Point Light: SUCCESS!! :-)\n";
-    */
-
     // add first area light to the scene
-    Point v1 = {0, 548, 0};
-    Point v2 = {111.2, 548, 0};
-    Point v3 = {111.2, 548, 559.2};
+    Point v1 = {343, 548, 227};
+    Point v2 = {343.2, 548, 332};
+    Point v3 = {213.2, 548, 332.2};
     Vector n = {0, -1, 0};
     RGB power = {0.9, 0.9, 0.9};
 
@@ -61,8 +52,13 @@ int main(int argc, const char * argv[]) {
     scene.lights.push_back(al1);
     scene.numLights++;
 
+    v2 = {343.2, 548, 332};
+    v3 = {213.2, 548, 332.2};
+    v1 = {213.0, 548.0, 227.0};
 
-    std::cout << "Area Lights: SUCCESS!! :-)\n";
+    al1 = new AreaLight(power, v1, v2, v3, n);
+    scene.lights.push_back(al1);
+    scene.numLights++;
 
     // Image resolution
     const int W= 1024;
@@ -79,7 +75,7 @@ int main(int argc, const char * argv[]) {
     // create the shader
     RGB background(0.05, 0.05, 0.55);
     std::cout << "everything done -> going inside the shader: SUCCESS!! :-)\n";
-    shd = new PathTracerShader(&scene, background);
+    shd = new DistributedShader(&scene, background);
     // declare the renderer
     StandardRenderer myRender (cam, &scene, img, shd);
     // render

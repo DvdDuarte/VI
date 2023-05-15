@@ -248,6 +248,12 @@ RGB PathTracerShader::shade(bool intersected, Intersection isect, int depth) {
     }
 // if there is a diffuse component do direct light
     if (!f->Kd.isZero()) color += directLighting(isect, f);
+
+    float gamma = 2.2;
+    color.R = pow(color.R, 1.0 / gamma);
+    color.G = pow(color.G, 1.0 / gamma);
+    color.B = pow(color.B, 1.0 / gamma);
+
     return color;
 };
 
