@@ -6,7 +6,7 @@
 #include "perspective.hpp"
 #include <omp.h>
 
-const int spp = 16;
+const int spp = 4;
 
 void StandardRenderer::Render() {
     int W = 0, H = 0;  // resolution
@@ -17,7 +17,7 @@ void StandardRenderer::Render() {
     perspCam->getResolution(&W, &H);
 
     // set the number of threads for parallel processing
-    omp_set_num_threads(4);
+    omp_set_num_threads(1);
 
     // main rendering loop: get primary rays from the camera until done
 #pragma omp parallel default(none) shared(perspCam, W, H) private(ss, x)

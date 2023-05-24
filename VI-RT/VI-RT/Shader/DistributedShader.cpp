@@ -138,35 +138,12 @@ RGB DistributedShader::shade(bool intersected, Intersection isect, int depth) {
     if (!f->Ks.isZero()) color += specularReflection (isect, f);
 
     // if there is a diffuse component do direct light
-    if (!f->Kd.isZero()) {
-        color += directLighting(isect, f);
+    if (!f->Kd.isZero()) color += directLighting(isect, f);
 
-        /**
-        // Monte Carlo sampling of the diffuse component
-        int num_diffuse_samples = 16;  // Number of samples for the diffuse component
-        RGB accumulated_diffuse(0.,0.,0.);
-
-        for (int sample = 0; sample < num_diffuse_samples; ++sample) {
-            // Generate a random direction over the hemisphere
-            Vector wo;
-            float pdf;
-            RGB brdf_val = f->Sample_f(isect.wo, &pdf, &wo);
-
-            // Trace a ray in this direction and get the radiance
-            Ray bounce(isect.p, wo);
-            bounce.adjustOrigin(isect.gn);
-            Intersection bounce_isect;
-            bool intersected = scene->trace(bounce, &bounce_isect);
-            RGB bounce_radiance = shade(intersected, bounce_isect);
-
-            // Add the contribution of this sample to the accumulated diffuse
-            accumulated_diffuse += brdf_val * bounce_radiance / pdf;
-        }
-
-        RGB final_diffuse = accumulated_diffuse / float(num_diffuse_samples);
-        color += final_diffuse;
-    */
-    }
+    float gamma = 2.2;
+    color.R = pow(color.R, 1.0 / gamma);
+    color.G = pow(color.G, 1.0 / gamma);
+    color.B = pow(color.B, 1.0 / gamma);
 
     return color;
 }

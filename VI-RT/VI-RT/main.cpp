@@ -51,22 +51,33 @@ int main(int argc, const char * argv[]) {
     */
 
     // add first area light to the scene
-    Point v1 = {0, 548, 0};
-    Point v2 = {111.2, 548, 0};
-    Point v3 = {111.2, 548, 559.2};
+    Point v1 = {343, 548, 227};
+    Point v2 = {343, 548, 332};
+    Point v3 = {213, 548, 332};
     Vector n = {0, -1, 0};
-    RGB power = {0.9, 0.9, 0.9};
+    RGB power = {0.1, 0.1, 0.1};
 
     auto* al1 = new AreaLight(power, v1, v2, v3, n);
     scene.lights.push_back(al1);
+    scene.numLights++;
+
+    // add second area light to the scene
+    v1 = {343, 548, 332};
+    v2 = {213, 548, 332};
+    v3 = {213, 548, 227};
+    n = {0, -1, 0};
+    power = {0.1, 0.1, 0.1};
+
+    auto* al2 = new AreaLight(power, v1, v2, v3, n);
+    scene.lights.push_back(al2);
     scene.numLights++;
 
 
     std::cout << "Area Lights: SUCCESS!! :-)\n";
 
     // Image resolution
-    const int W= 1024;
-    const int H= 1024;
+    const int W= 256;
+    const int H= 256;
 
     img = new ImagePPM(W,H);
 
@@ -79,8 +90,8 @@ int main(int argc, const char * argv[]) {
     // create the shader
     RGB background(0.05, 0.05, 0.55);
     std::cout << "everything done -> going inside the shader: SUCCESS!! :-)\n";
-    shd = new PathTracerShader(&scene, background);
     // declare the renderer
+    shd = new PathTracerShader(&scene, background);
     StandardRenderer myRender (cam, &scene, img, shd);
     // render
     myRender.Render();

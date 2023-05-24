@@ -25,9 +25,6 @@ public:
 
     RGB areaLight(Intersection isect, Phong *f, Light *l, RGB color, std::uniform_real_distribution<float> distribution,
                   std::default_random_engine generator);
-
-    RGB areaLight_V2(Intersection isect, Phong *f, Light *l, RGB color, std::uniform_real_distribution<float> distribution,
-                 std::default_random_engine generator);
 };
 
 
