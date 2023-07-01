@@ -163,7 +163,7 @@ bool Scene::trace (Ray r, Intersection *isect) {
     // iterate over all primitives
     for (auto prim_itr = prims.begin() ; prim_itr != prims.end() ; prim_itr++) {
         if ((*prim_itr)->g->intersect(r, &curr_isect)) {
-            if (!intersection) { // first intersection
+                if (!intersection) { // first intersection
                 intersection = true;
                 *isect = curr_isect;
                 isect->f = BRDFs[(*prim_itr)->material_ndx];
@@ -176,109 +176,33 @@ bool Scene::trace (Ray r, Intersection *isect) {
     }
 
     isect->isLight = false; // download new intersection.hpp
-    for (auto & light : lights) {
+    for (auto& light : lights) {
         if (light->type == AREA_LIGHT) {
-            AreaLight *al = (AreaLight *)light;
-            if (al->gem->intersect(r, &curr_isect)) {
-                if (!intersection) { // first intersection
-                    intersection = true;
-                    *isect = curr_isect;
-                    isect->isLight = true;
-                    isect->Le = al->L();
-                }
-                else if (curr_isect.depth < isect->depth) {
-                    *isect = curr_isect;
-                    isect->isLight = true;
-                    isect->Le = al->L();
+            AreaLight* al = static_cast<AreaLight*>(light);
+            bool light_intersection = false;
+
+            // Iterate over all triangles in the area light
+            for (auto gem : al->gems) {
+                if (gem->intersect(r, &curr_isect)) {
+                    if (!light_intersection) { // First intersection with the area light
+                        light_intersection = true;
+                        *isect = curr_isect;
+                        isect->isLight = true;
+                        isect->Le = al->power;
+                    } else if (curr_isect.depth < isect->depth) {
+                        *isect = curr_isect;
+                        isect->isLight = true;
+                        isect->Le = al->power;
+                    }
                 }
             }
+
+            if (light_intersection)
+                intersection = true; // Update intersection flag if any light intersection occurred
         }
     }
+
     return intersection;
-}
-
-//currently not used
-bool Scene::trace_recursive(Ray r, Intersection* isect, int depth) {
-    Intersection curr_isect;
-    bool intersection = false;
-    maxDepth = 5;  // THIS CAN BE CHANGED
-
-    if (numPrimitives == 0) return false;
-
-    // iterate over all primitives
-    for (auto & prim : prims) {
-        // Check for intersection with the primitive
-        if (prim->g->intersect(r, &curr_isect)) {
-            if (!intersection || curr_isect.depth < isect->depth) {
-                intersection = true;
-                *isect = curr_isect;
-                isect->f = BRDFs[prim->material_ndx];
-            }
-        }
-    }
-
-    isect->isLight = false; // download new intersection.hpp
-    for (auto & light : lights) {
-        if (light->type == AREA_LIGHT) {
-            auto *al = (AreaLight *)light;
-            if (al->gem->intersect(r, &curr_isect)) {
-                if (!intersection) { // first intersection
-                    intersection = true;
-                    *isect = curr_isect;
-                    isect->isLight = true;
-                    isect->Le = al->L();
-                }
-                else if (curr_isect.depth < isect->depth) {
-                    *isect = curr_isect;
-                    isect->isLight = true;
-                    isect->Le = al->L();
-                }
-            }
-        }
-    }
-
-    if (!intersection) {
-        return false;
-    }
-
-    // compute the direct color contribution
-    if (isect->isLight) {
-        // If the intersection is with a light source, the direct color is the light's emitted radiance
-        //isect->Le = (*l)->L();
-    } else {
-        // Compute the direct color contribution using the BRDF and incident light
-        // This would typically involve integrating over all light sources
-        // and calling the BRDF's eval() function
-    }
-
-    if (depth >= maxDepth) {
-        return true;
-    }
-
-    // compute the reflected ray
-    Ray reflectedRay;
-    reflectedRay.o = isect->p;  // the intersection point is the origin of the reflected ray
-    reflectedRay.dir = Vector::reflect(r.dir, isect->gn);  // use your reflect() function
-
-    // Implement Russian Roulette for recursion termination
-    float randomFloat = Vector::generateRandomFloat();
-    if (randomFloat < terminationThreshold) {
-        return true;  // terminate recursion
-    }
-
-    // If the ray wasn't terminated by Russian Roulette, then trace recursively
-    Intersection newIsect;
-    if (trace_recursive(reflectedRay, &newIsect, depth + 1)) {
-        // Scale the contribution by 1/terminationThreshold to account for the rays that were terminated
-        isect->Le += newIsect.Le / terminationThreshold;  // add the color contribution from the new intersection
-    }
-
-    return true;
-}
-
-//currently not used
-bool Scene::trace_2(Ray r, Intersection* isect) {
-    return trace_recursive(r, isect, 0);
 }
 
 // checks whether a point on a light source (distance maxL) is visible

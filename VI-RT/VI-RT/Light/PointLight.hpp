@@ -1,10 +1,3 @@
-//
-//  PointLight.hpp
-//  VI-RT-LPS
-//
-//  Created by Luis Paulo Santos on 06/04/2023.
-//
-
 #ifndef PointLight_hpp
 #define PointLight_hpp
 
@@ -12,15 +5,27 @@
 
 class PointLight: public Light {
 public:
-    RGB color;
-    Point pos;
-    PointLight (RGB _color, Point _pos): color(_color), pos(_pos) { type = POINT_LIGHT; }
-    ~PointLight () {}
-    // return the Light RGB radiance for a given point : p
-    RGB L (Point p) {return color;}
-    RGB L () {return color;}
-    // return a point p and RGB radiance for a given probability pair prob[2]
+    std::vector<Point> positions; // Vetor para armazenar múltiplas posições de luz
+    std::vector<RGB> colors; // Vetor para armazenar as cores correspondentes a cada posição de luz
+
+    PointLight() {
+        type = POINT_LIGHT;
+    }
+
+    ~PointLight() {}
+
+    void addSource(RGB _color, Point _pos) {
+        colors.push_back(_color);
+        positions.push_back(_pos);
+    }
+
     RGB Sample_L (float *prob, Point *p) {
+        // Escolha aleatoriamente uma das posições de luz
+        int index = static_cast<int>(prob[0] * positions.size());
+        Point pos = positions[index];
+        RGB color = colors[index];
+
+        // Retorna a intensidade da fonte de luz selecionada
         *p = pos;
         return color;
     }
