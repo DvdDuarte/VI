@@ -17,6 +17,7 @@
 #include "AreaLight.hpp"
 #include "Shader/DistributedShader.hpp"
 #include "Shader/PathTracerShader.hpp"
+#include "Image/Converters/ImageConverter.h"
 
 int main(int argc, const char * argv[]) {
     Scene scene;
@@ -98,6 +99,15 @@ int main(int argc, const char * argv[]) {
 
     // save the image
     img->Save("MyImage.ppm");
+
+    // PPM -> JPG
+    converter("MyImage.ppm", "jpg");
+
+    // PPM -> PFM
+    converter("MyImage.ppm", "pfm");
+
+    // PPM -> OpenEXR
+    converter("MyImage.ppm", "exr");
 
     std::cout << "That's all, folks!" << std::endl;
     return 0;

@@ -10,7 +10,7 @@
 void converter(const std::string& inputFile, const std::string& format) {
     std::string pythonScript;
 
-    const std::string& outputFile_prefix = "../VI-RT/converted_images/";
+    const std::string& outputFile_prefix = "../converted_images/";
     std::string outputFile = "";
     if (format == "jpg") {
         pythonScript = "../VI-RT/Image/Converters/ppm2jpg.py";

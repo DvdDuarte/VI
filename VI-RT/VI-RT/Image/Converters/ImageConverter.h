@@ -10,6 +10,6 @@
 #include <cstdio>
 #include <string>
 
-void converter(const std::string& inputFile, const std::string& outputFile, const std::string& format);
+void converter(const std::string& inputFile, const std::string& format);
 
 #endif //VI_RT_IMAGECONVERTER_H
