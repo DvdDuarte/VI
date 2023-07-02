@@ -6,7 +6,7 @@
 #include "perspective.hpp"
 #include <omp.h>
 
-const int spp = 32;
+const int spp = 1;
 
 void StandardRenderer::Render() {
     int W = 0, H = 0;  // resolution
