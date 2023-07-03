@@ -163,7 +163,7 @@ bool Scene::trace (Ray r, Intersection *isect) {
     // iterate over all primitives
     for (auto prim_itr = prims.begin() ; prim_itr != prims.end() ; prim_itr++) {
         if ((*prim_itr)->g->intersect(r, &curr_isect)) {
-                if (!intersection) { // first intersection
+            if (!intersection) { // first intersection
                 intersection = true;
                 *isect = curr_isect;
                 isect->f = BRDFs[(*prim_itr)->material_ndx];
@@ -176,32 +176,24 @@ bool Scene::trace (Ray r, Intersection *isect) {
     }
 
     isect->isLight = false; // download new intersection.hpp
-    for (auto& light : lights) {
+    for (auto & light : lights) {
         if (light->type == AREA_LIGHT) {
-            AreaLight* al = static_cast<AreaLight*>(light);
-            bool light_intersection = false;
-
-            // Iterate over all triangles in the area light
-            for (auto gem : al->gems) {
-                if (gem->intersect(r, &curr_isect)) {
-                    if (!light_intersection) { // First intersection with the area light
-                        light_intersection = true;
-                        *isect = curr_isect;
-                        isect->isLight = true;
-                        isect->Le = al->power;
-                    } else if (curr_isect.depth < isect->depth) {
-                        *isect = curr_isect;
-                        isect->isLight = true;
-                        isect->Le = al->power;
-                    }
+            AreaLight *al = (AreaLight *)light;
+            if (al->gem->intersect(r, &curr_isect)) {
+                if (!intersection) { // first intersection
+                    intersection = true;
+                    *isect = curr_isect;
+                    isect->isLight = true;
+                    isect->Le = al->L();
+                }
+                else if (curr_isect.depth < isect->depth) {
+                    *isect = curr_isect;
+                    isect->isLight = true;
+                    isect->Le = al->L();
                 }
             }
-
-            if (light_intersection)
-                intersection = true; // Update intersection flag if any light intersection occurred
         }
     }
-
     return intersection;
 }
 

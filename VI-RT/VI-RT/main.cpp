@@ -30,16 +30,15 @@ int main(int argc, const char * argv[]) {
     std::cout << std::endl;
 
     // add an ambient light to the scene
-    //AmbientLight ambient(RGB(0.05,0.05,0.05));
-    //scene.lights.push_back(&ambient);
-    //scene.numLights++;
-    //std::cout << "Ambient Light: SUCCESS!! :-)\n";
+    AmbientLight ambient(RGB(0.05,0.05,0.05));
+    scene.lights.push_back(&ambient);
+    scene.numLights++;
+    std::cout << "Ambient Light: SUCCESS!! :-)\n";
 
     // add a point light to the scene
-    //auto* pl = new PointLight();
-    //pl->addSource(RGB(0.65,0.65,0.65), Point(288,508,282));
-    //pl->addSource(RGB(0.75,0.75,0.75), Point(200,400,300));
-    //scene.lights.push_back(pl);
+    //auto *pl1 = new PointLight(RGB(0.65,0.65,0.65),
+    //                           Point(288,508,282));
+    //scene.lights.push_back(pl1);
     //scene.numLights++;
     //std::cout << "Point Light: SUCCESS!! :-)\n";
 
@@ -50,8 +49,7 @@ int main(int argc, const char * argv[]) {
     Vector n = {0, -1, 0};
     RGB power = {0.1, 0.1, 0.1};
 
-    auto* al1 = new AreaLight(power);
-    al1->addSource(v1, v2, v3, n);
+    auto* al1 = new AreaLight(power, v1, v2, v3, n);
     scene.lights.push_back(al1);
     scene.numLights++;
 
@@ -61,10 +59,10 @@ int main(int argc, const char * argv[]) {
     v3 = {213, 548, 227};
     n = {0, -1, 0};
     power = {0.1, 0.1, 0.1};
-    auto* al2 = new AreaLight(power);
-    al2->addSource(v1, v2, v3, n);
+    auto* al2 = new AreaLight(power, v1, v2, v3, n);
     scene.lights.push_back(al2);
     scene.numLights++;
+
 
     // add third area light to the scene
     v1 = {130, 548, 296};
@@ -72,10 +70,10 @@ int main(int argc, const char * argv[]) {
     v3 = {240, 548, 378};
     n = {0, -1, 0};
     power = {0.1, 0.1, 0.1};
-    auto* al3 = new AreaLight(power);
-    al3->addSource(v1, v2, v3, n);
+    auto* al3 = new AreaLight(power, v1, v2, v3, n);
     scene.lights.push_back(al3);
     scene.numLights++;
+
 
     // add forth area light to the scene
     v1 = {240, 548, 378};
@@ -83,31 +81,8 @@ int main(int argc, const char * argv[]) {
     v3 = {130, 548, 296};
     n = {0, -1, 0};
     power = {0.1, 0.1, 0.1};
-    auto* al4 = new AreaLight(power);
-    al4->addSource(v1, v2, v3, n);
+    auto* al4 = new AreaLight(power, v1, v2, v3, n);
     scene.lights.push_back(al4);
-    scene.numLights++;
-
-    // add fifth area light to the scene
-    v1 = {423, 548, 329};
-    v2 = {314, 548, 355};
-    v3 = {314, 548, 459};
-    n = {0, -1, 0};
-    power = {0.1, 0.1, 0.1};
-    auto* al5 = new AreaLight(power);
-    al5->addSource(v1, v2, v3, n);
-    scene.lights.push_back(al5);
-    scene.numLights++;
-
-    // add sixth area light to the scene
-    v1 = {314, 548, 459};
-    v2 = {423, 548, 433};
-    v3 = {423, 548, 329};
-    n = {0, -1, 0};
-    power = {0.1, 0.1, 0.1};
-    auto* al6 = new AreaLight(power);
-    al6->addSource(v1, v2, v3, n);
-    scene.lights.push_back(al6);
     scene.numLights++;
 
     std::cout << "Area Lights: SUCCESS!! :-)\n";
@@ -144,7 +119,7 @@ int main(int argc, const char * argv[]) {
     converter("MyImage.ppm", "pfm");
 
     // PPM -> OpenEXR
-    converter("MyImage.ppm", "exr");
+    //converter("MyImage.ppm", "exr");
 
     std::cout << "That's all, folks!" << std::endl;
     return 0;
