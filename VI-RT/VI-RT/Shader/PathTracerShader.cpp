@@ -12,37 +12,30 @@ RGB PathTracerShader::areaLight(Intersection isect, Phong* f, Light* l, RGB colo
     RGB accumulated_color(0., 0., 0.);
 
     if (!f->Kd.isZero()) {
-        RGB Kd = f->Kd;
-        auto* al = dynamic_cast<AreaLight*>(l);
+        RGB L, Kd = f->Kd;
+        Point lpoint;
+        float l_pdf;
+        auto *al = dynamic_cast<AreaLight*>(l);
 
         for (int i = 0; i < num_samples; ++i) {
             float rnd[2];
             rnd[0] = distribution(generator);
             rnd[1] = distribution(generator);
+            L = al->Sample_L(rnd, &lpoint, l_pdf);
 
-            // Iterate over all the area light sources
-            for (size_t j = 0; j < al->gems.size(); ++j) {
-                RGB L;
-                Point lpoint;
-                float l_pdf;
+            Vector Ldir = isect.p.vec2point(lpoint);
+            const float Ldistance = Ldir.norm();
+            Ldir.normalize();
 
-                // Sample the area light source
-                L = al->Sample_L(rnd, &lpoint, l_pdf);
+            float cosL = Ldir.dot(isect.sn);
+            float cosL_LA = Ldir.dot(al->gem->normal);
 
-                Vector Ldir = isect.p.vec2point(lpoint);
-                const float Ldistance = Ldir.norm();
-                Ldir.normalize();
+            if (cosL>0. and cosL_LA<=0.) {
+                Ray shadow(isect.p, Ldir);
+                shadow.adjustOrigin(isect.gn);
 
-                float cosL = Ldir.dot(isect.sn);
-                float cosL_LA = Ldir.dot(al->gems[j]->normal);
-
-                if (cosL > 0. && cosL_LA <= 0.) {
-                    Ray shadow(isect.p, Ldir);
-                    shadow.adjustOrigin(isect.gn);
-
-                    if (scene->visibility(shadow, Ldistance - EPSILON)) {
-                        accumulated_color += (Kd * L * cosL) / l_pdf;
-                    }
+                if (scene->visibility(shadow, Ldistance-EPSILON)) {
+                    accumulated_color += (Kd * L * cosL) / l_pdf;
                 }
             }
         }
@@ -55,37 +48,33 @@ RGB PathTracerShader::areaLight(Intersection isect, Phong* f, Light* l, RGB colo
 
 RGB PathTracerShader::pointLight(Intersection isect, Phong* f, Light* l, RGB color) {
     if (!f->Kd.isZero()) {
-        auto* pl = dynamic_cast<PointLight*>(l);
+        Point lpoint;
+        // get the position and radiance of the light source
+        RGB L = (l)->Sample_L(nullptr, &lpoint);
 
-        for (int i = 0; i < pl->positions.size(); i++) {
-            // get the position and radiance of the light source
-            Point lpoint;
-            RGB L = pl->colors[i];
+        // compute the direction from the intersection to the light
+        Vector Ldir = isect.p.vec2point(lpoint);
 
-            // compute the direction from the intersection to the light
-            Vector Ldir = isect.p.vec2point(pl->positions[i]);
+        // Compute the distance between the intersection and the light source
+        const float Ldistance = Ldir.norm();
 
-            // Compute the distance between the intersection and the light source
-            const float Ldistance = Ldir.norm();
+        Ldir.normalize(); // now normalize Ldir
 
-            Ldir.normalize(); // now normalize Ldir
+        // compute the cosine (Ldir , shading normal)
+        float cosL = Ldir.dot(isect.sn);
 
-            // compute the cosine (Ldir , shading normal)
-            float cosL = Ldir.dot(isect.sn);
+        if (cosL>0.) { // the light is NOT behind the primitive
 
-            if (cosL > 0.) { // the light is NOT behind the primitive
+            // generate the shadow ray
+            Ray shadow(isect.p, Ldir);
 
-                // generate the shadow ray
-                Ray shadow(isect.p, Ldir);
+            // adjust origin EPSILON along the normal: avoid self occlusion
+            shadow.adjustOrigin(isect.gn);
 
-                // adjust origin EPSILON along the normal: avoid self occlusion
-                shadow.adjustOrigin(isect.gn);
-
-                if (scene->visibility(shadow, Ldistance - EPSILON)) // light source not occluded
-                    color += f->Kd * L * cosL;
-            } // end cosL > 0.
-            // the light is behind the primitive
-        }
+            if (scene->visibility(shadow, Ldistance-EPSILON)) // light source not occluded
+                color += f->Kd * L * cosL;
+        } // end cosL > 0.
+        // the light is behind the primitive
     }
     return color;
 }
@@ -94,20 +83,68 @@ RGB PathTracerShader::pointLight(Intersection isect, Phong* f, Light* l, RGB col
 RGB PathTracerShader::directLighting(Intersection isect, Phong* f, std::uniform_real_distribution<float> distribution, std::default_random_engine generator) {
     RGB color(0.,0.,0.);
 
-    // Seleciona aleatoriamente uma luz
-    int chosen_idx = (int)(floor(distribution(generator) * scene->numLights));
-    Light* chosen_light = scene->lights[chosen_idx];
+    // Calculate total power of all lights
+    float totalPower = 0.0;
+    std::vector<float> powers;
+    for (auto& light : scene->lights) {
 
-    if (chosen_light->type == AMBIENT_LIGHT) {
-        if (!f->Ka.isZero()) {
-            RGB Ka = f->Ka;
-            color += Ka * chosen_light->L();
+        if (light->type == AMBIENT_LIGHT) { // is it an ambient light ?
+            if (!f->Ka.isZero()) {
+                RGB Ka = f->Ka;
+                color += Ka * light->L();
+            }
+            continue;
         }
-    } else if (chosen_light->type == POINT_LIGHT) {
-        color = pointLight(isect, f, chosen_light, color);
-    } else if (chosen_light->type == AREA_LIGHT) {
-        color = areaLight(isect, f, chosen_light, color, distribution, generator);
+        totalPower += light->power;
+        powers.push_back(light->power);
     }
+
+    // Normalize the powers of the lights
+    float totalPowerSum = std::accumulate(powers.begin(), powers.end(), 0.0f);
+    for (auto& power : powers) {
+        power /= totalPowerSum;
+    }
+
+    // Compute probability of selection for each light
+    std::vector<float> pdf;
+    for (auto& power : powers) {
+        pdf.push_back(power / totalPowerSum);
+    }
+
+    // Compute cumulative distribution function (CDF)
+    std::vector<float> cdf;
+    float sum = 0.0f;
+    for (float p : pdf) {
+        sum += p;
+        cdf.push_back(sum);
+    }
+    cdf.back() = 1.0f;  // Ensure the last element is 1.0
+
+    // Randomly select a light based on the CDF
+    float randomValue = distribution(generator);
+    int selectedLightIndex = -1;
+    for (int i = 0; i < cdf.size(); ++i) {
+        if (randomValue <= cdf[i]) {
+            selectedLightIndex = i;
+            break;
+        }
+    }
+
+    // If a light is selected, compute its contribution
+    if (selectedLightIndex >= 0) {
+        Light* selectedLight = scene->lights[selectedLightIndex];
+        if (selectedLight->type == POINT_LIGHT) {
+            // Handle Point Light
+            color += pointLight(isect, f, selectedLight, color);
+        } else if (selectedLight->type == AREA_LIGHT) {
+            // Handle Area Light
+            color += areaLight(isect, f, selectedLight, color, distribution, generator);
+        }
+    }
+
+    // Divide the color by the probability of selecting the light
+    float lightPDF = 1.0 / static_cast<float>(pdf.size() + 1);  // +1 for the ambient light
+    color = color / lightPDF;
 
     return color;
 }

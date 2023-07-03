@@ -16,7 +16,6 @@ class PathTracerShader: public Shader {
     RGB diffuseReflection(Intersection isect, Phong *f, int depth, std::uniform_real_distribution<float> distribution, std::default_random_engine generator);
     float continue_p;
     int MAX_DEPTH;
-
 public:
     PathTracerShader (Scene *scene, RGB bg): background(bg), Shader(scene) {continue_p = 0.5f; MAX_DEPTH=2;}
 

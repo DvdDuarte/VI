@@ -9,42 +9,35 @@
 #include "AreaLight.hpp"
 #include "PointLight.hpp"
 
-RGB DistributedShader::areaLight(Intersection isect, Phong* f, Light* l, RGB color, std::uniform_real_distribution<float> distribution, std::default_random_engine generator) {
-    int num_samples = 3;
+RGB DistributedShader::areaLight(Intersection isect, Phong* f, Light* l, RGB color, std::uniform_real_distribution<float> distribution, std::default_random_engine generator){
+    int num_samples = 100;
     RGB accumulated_color(0., 0., 0.);
 
     if (!f->Kd.isZero()) {
-        RGB Kd = f->Kd;
-        auto* al = dynamic_cast<AreaLight*>(l);
+        RGB L, Kd = f->Kd;
+        Point lpoint;
+        float l_pdf;
+        auto *al = dynamic_cast<AreaLight*>(l);
 
         for (int i = 0; i < num_samples; ++i) {
             float rnd[2];
             rnd[0] = distribution(generator);
             rnd[1] = distribution(generator);
+            L = al->Sample_L(rnd, &lpoint, l_pdf);
 
-            // Iterate over all the area light sources
-            for (size_t j = 0; j < al->gems.size(); ++j) {
-                RGB L;
-                Point lpoint;
-                float l_pdf;
+            Vector Ldir = isect.p.vec2point(lpoint);
+            const float Ldistance = Ldir.norm();
+            Ldir.normalize();
 
-                // Sample the area light source
-                L = al->Sample_L(rnd, &lpoint, l_pdf);
+            float cosL = Ldir.dot(isect.sn);
+            float cosL_LA = Ldir.dot(al->gem->normal);
 
-                Vector Ldir = isect.p.vec2point(lpoint);
-                const float Ldistance = Ldir.norm();
-                Ldir.normalize();
+            if (cosL>0. and cosL_LA<=0.) {
+                Ray shadow(isect.p, Ldir);
+                shadow.adjustOrigin(isect.gn);
 
-                float cosL = Ldir.dot(isect.sn);
-                float cosL_LA = Ldir.dot(al->gems[j]->normal);
-
-                if (cosL > 0. && cosL_LA <= 0.) {
-                    Ray shadow(isect.p, Ldir);
-                    shadow.adjustOrigin(isect.gn);
-
-                    if (scene->visibility(shadow, Ldistance - EPSILON)) {
-                        accumulated_color += (Kd * L * cosL) / l_pdf;
-                    }
+                if (scene->visibility(shadow, Ldistance-EPSILON)) {
+                    accumulated_color += (Kd * L * cosL) / l_pdf;
                 }
             }
         }
@@ -57,37 +50,33 @@ RGB DistributedShader::areaLight(Intersection isect, Phong* f, Light* l, RGB col
 
 RGB DistributedShader::pointLight(Intersection isect, Phong* f, Light* l, RGB color) {
     if (!f->Kd.isZero()) {
-        auto* pl = dynamic_cast<PointLight*>(l);
+        Point lpoint;
+        // get the position and radiance of the light source
+        RGB L = (l)->Sample_L(nullptr, &lpoint);
 
-        for (int i = 0; i < pl->positions.size(); i++) {
-            // get the position and radiance of the light source
-            Point lpoint;
-            RGB L = pl->colors[i];
+        // compute the direction from the intersection to the light
+        Vector Ldir = isect.p.vec2point(lpoint);
 
-            // compute the direction from the intersection to the light
-            Vector Ldir = isect.p.vec2point(pl->positions[i]);
+        // Compute the distance between the intersection and the light source
+        const float Ldistance = Ldir.norm();
 
-            // Compute the distance between the intersection and the light source
-            const float Ldistance = Ldir.norm();
+        Ldir.normalize(); // now normalize Ldir
 
-            Ldir.normalize(); // now normalize Ldir
+        // compute the cosine (Ldir , shading normal)
+        float cosL = Ldir.dot(isect.sn);
 
-            // compute the cosine (Ldir , shading normal)
-            float cosL = Ldir.dot(isect.sn);
+        if (cosL>0.) { // the light is NOT behind the primitive
 
-            if (cosL > 0.) { // the light is NOT behind the primitive
+            // generate the shadow ray
+            Ray shadow(isect.p, Ldir);
 
-                // generate the shadow ray
-                Ray shadow(isect.p, Ldir);
+            // adjust origin EPSILON along the normal: avoid self occlusion
+            shadow.adjustOrigin(isect.gn);
 
-                // adjust origin EPSILON along the normal: avoid self occlusion
-                shadow.adjustOrigin(isect.gn);
-
-                if (scene->visibility(shadow, Ldistance - EPSILON)) // light source not occluded
-                    color += f->Kd * L * cosL;
-            } // end cosL > 0.
-            // the light is behind the primitive
-        }
+            if (scene->visibility(shadow, Ldistance-EPSILON)) // light source not occluded
+                color += f->Kd * L * cosL;
+        } // end cosL > 0.
+        // the light is behind the primitive
     }
     return color;
 }
