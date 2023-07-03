@@ -36,21 +36,21 @@ static void PrintInfo (const ObjReader myObj) {
     auto it_shape = shapes.begin();
     for ( ; it_shape != shapes.end() ; it_shape++) {
         // assume each face has 3 vertices
-        std::cout << "Processing shape " << it_shape->name << std::endl;
+        // std::cout << "Processing shape " << it_shape->name << std::endl;
         // iterate faces
         // assume each face has 3 vertices
         auto it_vertex = it_shape->mesh.indices.begin();
         for ( ; it_vertex != it_shape->mesh.indices.end() ; ) {
             // process 3 vertices
             for (int v=0 ; v<3 ; v++) {
-                std::cout << it_vertex->vertex_index;
+                // std::cout << it_vertex->vertex_index;
                 it_vertex++;
             }
-            std::cout << std::endl;
+            // std::cout << std::endl;
         }
-        std::cout << std::endl;
+        // std::cout << std::endl;
         
-        printf("There are %lu material indexes\n", it_shape->mesh.material_ids.size());
+        // printf("There are %lu material indexes\n", it_shape->mesh.material_ids.size());
     }
     
 }
