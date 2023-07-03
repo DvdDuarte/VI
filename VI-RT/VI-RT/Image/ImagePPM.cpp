@@ -14,12 +14,16 @@ void ImagePPM::ToneMap() {
 
     for (int j = 0; j < H; j++) {
         for (int i = 0; i < W; ++i) {
-            imageToSave[j * W + i].val[0] = (unsigned char)(std::min(1.f, imagePlane[j * W + i].R) * 255);
-            imageToSave[j * W + i].val[1] = (unsigned char)(std::min(1.f, imagePlane[j * W + i].G) * 255);
-            imageToSave[j * W + i].val[2] = (unsigned char)(std::min(1.f, imagePlane[j * W + i].B) * 255);
+            float max_channel = std::max(std::max(imagePlane[j * W + i].R, imagePlane[j * W + i].G), imagePlane[j * W + i].B);
+
+            // Apply Reinhardt tone mapping to each channel individually
+            imageToSave[j * W + i].val[0] = (unsigned char)(imagePlane[j * W + i].R / (1.0f + max_channel) * 255);
+            imageToSave[j * W + i].val[1] = (unsigned char)(imagePlane[j * W + i].G / (1.0f + max_channel) * 255);
+            imageToSave[j * W + i].val[2] = (unsigned char)(imagePlane[j * W + i].B / (1.0f + max_channel) * 255);
         }
     }
 }
+
 
 bool ImagePPM::Save(std::string filename) {
     ToneMap();
