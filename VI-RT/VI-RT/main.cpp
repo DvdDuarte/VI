@@ -12,6 +12,7 @@
 #include "Shader/PathTracerShader.hpp"
 #include <chrono>
 using namespace std::chrono;
+#include "Image/Converters/ImageConverter.hpp"
 
 int main(int argc, const char * argv[]) {
     Scene scene;
@@ -133,11 +134,20 @@ int main(int argc, const char * argv[]) {
     auto start = high_resolution_clock::now();
     myRender.Render();
 
+    // After function call
+    auto stop = high_resolution_clock::now();
+
     // save the image
     img->Save("MyImage.ppm");
 
-    // After function call
-    auto stop = high_resolution_clock::now();
+    // PPM -> JPG
+    converter("MyImage.ppm", "jpg");
+
+    // PPM -> PFM
+    converter("MyImage.ppm", "pfm");
+
+    // PPM -> OpenEXR
+    converter("MyImage.ppm", "exr");
 
     std::cout << "That's all, folks!" << std::endl;
 

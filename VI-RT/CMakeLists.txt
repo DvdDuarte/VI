@@ -67,5 +67,5 @@ add_executable(VI_RT
         VI-RT/Shader/WhittedShader.hpp
         VI-RT/Shader/DistributedShader.cpp
         VI-RT/Shader/DistributedShader.hpp
-        VI-RT/main.cpp VI-RT/Shader/PathTracerShader.cpp)
+        VI-RT/main.cpp VI-RT/Shader/PathTracerShader.cpp VI-RT/Image/Converters/ImageConverter.cpp VI-RT/Image/Converters/ImageConverter.hpp)
 
