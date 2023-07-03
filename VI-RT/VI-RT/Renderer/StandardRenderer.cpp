@@ -6,7 +6,7 @@
 #include "perspective.hpp"
 #include <omp.h>
 
-const float spp = 1024.0f;
+const float spp = 256.0f;
 
 void StandardRenderer::Render() {
     int W = 0, H = 0;  // resolution
