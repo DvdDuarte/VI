@@ -10,6 +10,8 @@
 #include "AreaLight.hpp"
 #include "Shader/DistributedShader.hpp"
 #include "Shader/PathTracerShader.hpp"
+#include <chrono>
+using namespace std::chrono;
 #include "Image/Converters/ImageConverter.hpp"
 
 int main(int argc, const char * argv[]) {
@@ -25,7 +27,7 @@ int main(int argc, const char * argv[]) {
         std::cout << "ERROR!! :o\n";
         return 1;
     }
-    std::cout << "Scene Load: SUCCESS!! :-)\n";
+
     scene.printSummary();
     std::cout << std::endl;
 
@@ -63,7 +65,6 @@ int main(int argc, const char * argv[]) {
     scene.lights.push_back(al2);
     scene.numLights++;
 
-
     // add third area light to the scene
     v1 = {130, 548, 296};
     v2 = {240, 548, 272};
@@ -85,8 +86,6 @@ int main(int argc, const char * argv[]) {
     scene.lights.push_back(al4);
     scene.numLights++;
 
-    std::cout << "Area Lights: SUCCESS!! :-)\n";
-
     // Image resolution
     const int W = 1024;
     const int H = 1024;
@@ -102,12 +101,15 @@ int main(int argc, const char * argv[]) {
 
     // create the shader
     RGB background(0.05, 0.05, 0.55);
-    std::cout << "everything done -> going inside the shader: SUCCESS!! :-)\n";
     shd = new PathTracerShader(&scene, background);
+
     // declare the renderer
     StandardRenderer myRender(cam, &scene, img, shd);
-    // render
+    auto start = high_resolution_clock::now();
     myRender.Render();
+
+    // After function call
+    auto stop = high_resolution_clock::now();
 
     // save the image
     img->Save("MyImage.ppm");
@@ -119,8 +121,11 @@ int main(int argc, const char * argv[]) {
     converter("MyImage.ppm", "pfm");
 
     // PPM -> OpenEXR
-    //converter("MyImage.ppm", "exr");
+    converter("MyImage.ppm", "exr");
 
     std::cout << "That's all, folks!" << std::endl;
+
+    auto duration = duration_cast<seconds>(stop - start);
+    std::cout << duration.count() << std::endl;
     return 0;
 }

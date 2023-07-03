@@ -6,32 +6,33 @@
 #include "perspective.hpp"
 #include <omp.h>
 
-const int spp = 1;
+const float spp = 128.0f;
 
 void StandardRenderer::Render() {
     int W = 0, H = 0;  // resolution
-    int ss, x = 0;
 
     // get resolution from the camera
     Perspective* perspCam = dynamic_cast<Perspective*>(cam);
     perspCam->getResolution(&W, &H);
 
-    // set the number of threads for parallel processing
-    omp_set_num_threads(1);
+    int maxThreads = omp_get_max_threads();
+    std::cout << "Max available OpenMP threads: " << maxThreads << std::endl;
+
+    int targetThreads = static_cast<int>(maxThreads * 0.8);  // we don't want to use 100% of the power
+    if (targetThreads > 0) {
+        targetThreads = 10;
+        std::cout << "Will run with [" << targetThreads << "] OpenMP threads "<< std::endl;
+        omp_set_num_threads(targetThreads);
+    }
 
     // main rendering loop: get primary rays from the camera until done
-#pragma omp parallel default(none) shared(perspCam, W, H) private(ss, x)
+#pragma omp parallel default(none) shared(perspCam, W, H)
     {
-#pragma omp for schedule(dynamic, 1) // Parallelize outer loop
+#pragma omp for schedule(guided, 5) // Parallelize outer loop
         for (int y = 0; y < H; y++) {  // loop over rows
-            for (x = 0; x < W; x++) { // loop over columns
-                RGB color(0., 0., 0.), this_color;
-                Ray primary;
-                Intersection isect;
-                bool intersected;
-                int depth = 0;
-
-                for (ss = 0; ss < spp; ss++) {
+            for (int x = 0; x < W; x++) { // loop over columns
+                RGB color(0., 0., 0.);
+                for (int ss = 0; ss < spp; ss++) {
 
                     float jitter[2];
 
@@ -39,13 +40,15 @@ void StandardRenderer::Render() {
                     jitter[1] = Vector::generateRandomFloat();
 
                     // Generate Ray (camera)
+                    Ray primary;
                     perspCam->GenerateRay(x, y, &primary, jitter);
 
                     // trace ray (scene)
-                    intersected = scene->trace(primary, &isect);
+                    Intersection isect;
+                    bool intersected = scene->trace(primary, &isect);
 
                     // shade this intersection (shader)
-                    this_color = shd->shade(intersected, isect, depth);
+                    RGB this_color = shd->shade(intersected, isect, 0);
 
                     color += this_color;
                 }
@@ -58,5 +61,6 @@ void StandardRenderer::Render() {
         }   // loop over rows
     }
 }
+
 
 
