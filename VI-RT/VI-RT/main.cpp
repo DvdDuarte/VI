@@ -31,21 +31,22 @@ int main(int argc, const char * argv[]) {
     scene.printSummary();
     std::cout << std::endl;
 
+    /*
     // add an ambient light to the scene
     AmbientLight ambient(RGB(0.05,0.05,0.05));
     scene.lights.push_back(&ambient);
     scene.numLights++;
     std::cout << "Ambient Light: SUCCESS!! :-)\n";
-
+*/
     // add a point light to the scene
-    //auto *pl1 = new PointLight(RGB(0.65,0.65,0.65),
-    //                           Point(288,508,282));
-    //scene.lights.push_back(pl1);
-    //scene.numLights++;
-    //std::cout << "Point Light: SUCCESS!! :-)\n";
+    auto *pl1 = new PointLight(RGB(0.65,0.65,0.65),
+                               Point(288,508,282));
+    scene.lights.push_back(pl1);
+    scene.numLights++;
+    std::cout << "Point Light: SUCCESS!! :-)\n";
 
     // add first area light to the scene
-    Point v1 = {343, 548, 227};
+    /*Point v1 = {343, 548, 227};
     Point v2 = {343, 548, 332};
     Point v3 = {213, 548, 332};
     Vector n = {0, -1, 0};
@@ -85,7 +86,7 @@ int main(int argc, const char * argv[]) {
     auto* al4 = new AreaLight(power, v1, v2, v3, n);
     scene.lights.push_back(al4);
     scene.numLights++;
-
+*/
     // Image resolution
     const int W = 1024;
     const int H = 1024;
