@@ -1,5 +1,4 @@
 import cv2
-print(cv2.haveImageReader("exr"))
 import numpy as np
 import sys
 def ppm_to_exr(input_path, output_path):
